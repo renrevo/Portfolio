@@ -1,0 +1,950 @@
+*,
+::before,
+::after {
+   box-sizing: border-box;
+   padding: 0;
+   margin: 0;
+   font-family: "Inter", sans-serif;
+}
+
+a {
+   text-decoration: none;
+   color: inherit;
+}
+
+:root {
+   --grey-100: hsl(0, 0%, 0%);
+   --grey-90: hsl(0, 0%, 6%);
+   --grey-80: hsl(0, 0%, 12%);
+   --grey-70: hsl(0, 0%, 24%);
+   --grey-60: hsl(0, 0%, 36%);
+   --grey-50: hsl(0, 0%, 48%);
+   --grey-40: hsl(0, 0%, 60%);
+   --grey-30: hsl(0, 0%, 72%);
+   --grey-20: hsl(0, 0%, 84%);
+   --grey-10: hsl(0, 0%, 96%);
+   --grey-0: hsl(0, 0%, 100%);
+
+   --overlay-white-10: hsla(0, 0%, 100%, 0.06);
+   --overlay-white-20: hsla(0, 0%, 100%, 0.12);
+   --overlay-white-30: hsla(0, 0%, 100%, 0.24);
+   --overlay-white-40: hsla(0, 0%, 100%, 0.36);
+   --overlay-white-50: hsla(0, 0%, 100%, 0.48);
+
+   --overlay-black-10: hsla(0, 0%, 0%, 0.06);
+   --overlay-black-20: hsla(0, 0%, 0%, 0.12);
+   --overlay-black-30: hsla(0, 0%, 0%, 0.24);
+   --overlay-black-40: hsla(0, 0%, 0%, 0.36);
+   --overlay-black-50: hsla(0, 0%, 0%, 0.48);
+
+   --overlay-bg: var(--overlay-black-50);
+
+   /* primary foundation */
+   --primary-hue: 216;
+
+   /* secondary foundation */
+   --secondary-hue: 0;
+
+   /* Light theme alias variables: These variables are used to define the color scheme for the light theme of the application. */
+   --bg-color-100-light: var(--grey-0);
+   --bg-color-90-light: var(--grey-10);
+
+   --bg-color-invert-light: var(--grey-100);
+
+   --text-color-100-light: var(--grey-100);
+   --text-color-90-light: var(--grey-80);
+   --text-color-80-light: var(--grey-70);
+   --text-color-70-light: var(--grey-50);
+
+   --text-color-invert-light: var(--grey-0);
+
+   --overlay-color-10-light: var(--overlay-black-10);
+   --overlay-color-20-light: var(--overlay-black-20);
+   --overlay-color-30-light: var(--overlay-black-30);
+   --overlay-color-40-light: var(--overlay-black-40);
+   --overlay-color-50-light: var(--overlay-black-50);
+
+   --border-color-10-light: var(--overlay-black-10);
+   --border-color-20-light: var(--overlay-black-20);
+   --border-color-30-light: var(--overlay-black-30);
+
+   /* Dark theme alias variables are used to define colors for the dark mode of the website */
+   --bg-color-100-dark: var(--grey-90);
+   --bg-color-90-dark: var(--grey-80);
+
+   --bg-color-invert-dark: var(--grey-0);
+
+   --text-color-100-dark: var(--grey-0);
+   --text-color-90-dark: var(--grey-20);
+   --text-color-80-dark: var(--grey-30);
+   --text-color-70-dark: var(--grey-50);
+
+   --text-color-invert-dark: var(--grey-100);
+
+   --overlay-color-10-dark: var(--overlay-white-10);
+   --overlay-color-20-dark: var(--overlay-white-20);
+   --overlay-color-30-dark: var(--overlay-white-30);
+   --overlay-color-40-dark: var(--overlay-white-40);
+   --overlay-color-50-dark: var(--overlay-white-50);
+
+   --border-color-10-dark: var(--overlay-white-10);
+   --border-color-20-dark: var(--overlay-white-20);
+   --border-color-30-dark: var(--overlay-white-30);
+
+   /* setting defaults */
+   color-scheme: light;
+
+   --bg-color-100: var(--bg-color-100-light);
+   --bg-color-90: var(--bg-color-90-light);
+
+   --bg-color-invert: var(--bg-color-invert-light);
+
+   --text-color-100: var(--text-color-100-light);
+   --text-color-90: var(--text-color-90-light);
+   --text-color-80: var(--text-color-80-light);
+   --text-color-70: var(--text-color-70-light);
+
+   --text-color-invert: var(--text-color-invert-light);
+
+   --overlay-color-10: var(--overlay-color-10-light);
+   --overlay-color-20: var(--overlay-color-20-light);
+   --overlay-color-30: var(--overlay-color-30-light);
+   --overlay-color-40: var(--overlay-color-40-light);
+   --overlay-color-50: var(--overlay-color-50-light);
+
+   --border-color-10: var(--border-color-10-light);
+   --border-color-20: var(--border-color-20-light);
+   --border-color-30: var(--border-color-30-light);
+
+   /* Shiny CTA */
+   --shiny-cta-bg: var(--bg-color-invert);
+   --shiny-cta-border-subtle: var(--border-color-20);
+   --shiny-cta-text: var(--text-color-invert);
+   --shiny-cta-highlight: hsl(0, 0%, 40%);
+   --shiny-cta-highlight-subtle: hsl(0, 0%, 76%);
+}
+
+@media (prefers-color-scheme: light) {
+   :root {
+      color-scheme: light;
+
+      --bg-color-100: var(--bg-color-100-light);
+      --bg-color-90: var(--bg-color-90-light);
+
+      --bg-color-invert: var(--bg-color-invert-light);
+
+      --text-color-100: var(--text-color-100-light);
+      --text-color-90: var(--text-color-90-light);
+      --text-color-80: var(--text-color-80-light);
+      --text-color-70: var(--text-color-70-light);
+
+      --text-color-invert: var(--text-color-invert-light);
+
+      --overlay-color-10: var(--overlay-color-10-light);
+      --overlay-color-20: var(--overlay-color-20-light);
+      --overlay-color-30: var(--overlay-color-30-light);
+      --overlay-color-40: var(--overlay-color-40-light);
+      --overlay-color-50: var(--overlay-color-50-light);
+
+      --border-color-10: var(--border-color-10-light);
+      --border-color-20: var(--border-color-20-light);
+      --border-color-30: var(--border-color-30-light);
+   }
+}
+
+// @media (prefers-color-scheme: dark) {
+//    :root {
+//       color-scheme: dark;
+
+//       --bg-color-100: var(--bg-color-100-dark);
+//       --bg-color-90: var(--bg-color-90-dark);
+
+//       --text-color-100: var(--text-color-100-dark);
+//       --text-color-90: var(--text-color-90-dark);
+//       --text-color-80: var(--text-color-80-dark);
+//       --text-color-70: var(--text-color-70-dark);
+
+//       --text-color-invert: var(--text-color-invert-dark);
+
+//       --overlay-color-10: var(--overlay-color-10-dark);
+//       --overlay-color-20: var(--overlay-color-20-dark);
+//       --overlay-color-30: var(--overlay-color-30-dark);
+//       --overlay-color-40: var(--overlay-color-40-dark);
+//       --overlay-color-50: var(--overlay-color-50-dark);
+
+//       --border-color-10: var(--border-color-10-dark);
+//       --border-color-20: var(--border-color-20-dark);
+//       --border-color-30: var(--border-color-30-dark);
+//    }
+// }
+
+/* This block defines the color variables for the light theme */
+[color-scheme="light"] {
+   color-scheme: light;
+
+   --bg-color-100: var(--bg-color-100-light);
+   --bg-color-90: var(--bg-color-90-light);
+
+   --bg-color-invert: var(--bg-color-invert-light);
+
+   --text-color-100: var(--text-color-100-light);
+   --text-color-90: var(--text-color-90-light);
+   --text-color-80: var(--text-color-80-light);
+   --text-color-70: var(--text-color-70-light);
+
+   --text-color-invert: var(--text-color-invert-light);
+
+   --overlay-color-10: var(--overlay-color-10-light);
+   --overlay-color-20: var(--overlay-color-20-light);
+   --overlay-color-30: var(--overlay-color-30-light);
+   --overlay-color-40: var(--overlay-color-40-light);
+   --overlay-color-50: var(--overlay-color-50-light);
+
+   --border-color-10: var(--border-color-10-light);
+   --border-color-20: var(--border-color-20-light);
+   --border-color-30: var(--border-color-30-light);
+}
+
+/* This block defines the color variables for the dark theme */
+[color-scheme="dark"] {
+   color-scheme: dark;
+   --bg-color-100: var(--bg-color-100-dark);
+   --bg-color-90: var(--bg-color-90-dark);
+
+   --bg-color-invert: var(--bg-color-invert-dark);
+
+   --text-color-100: var(--text-color-100-dark);
+   --text-color-90: var(--text-color-90-dark);
+   --text-color-80: var(--text-color-80-dark);
+   --text-color-70: var(--text-color-70-dark);
+
+   --text-color-invert: var(--text-color-invert-dark);
+
+   --overlay-color-10: var(--overlay-color-10-dark);
+   --overlay-color-20: var(--overlay-color-20-dark);
+   --overlay-color-30: var(--overlay-color-30-dark);
+   --overlay-color-40: var(--overlay-color-40-dark);
+   --overlay-color-50: var(--overlay-color-50-dark);
+
+   --border-color-10: var(--border-color-10-dark);
+   --border-color-20: var(--border-color-20-dark);
+   --border-color-30: var(--border-color-30-dark);
+}
+
+/* The .d-flex class is used to apply flexbox layout to an element */
+.d-flex {
+   display: flex;
+}
+
+/* The .d-grid class is used to apply a CSS Grid layout to an element */
+.d-grid {
+   display: grid;
+}
+
+/* The .container class is used to center the content and set a maximum width */
+.container {
+   max-width: 64rem;
+   margin: 0 auto;
+}
+
+.brand {
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+
+   > img {
+      height: 3rem;
+      border: 1px solid var(--border-color-10);
+   }
+
+   > p {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--text-color-100);
+   }
+}
+
+.header {
+   backdrop-filter: blur(2rem);
+   position: sticky;
+   top: 0;
+   z-index: 1;
+}
+
+.navbar {
+   display: flex;
+   align-items: center;
+   padding: 1rem;
+}
+
+.nav {
+   order: 2;
+
+   &__toggler {
+      padding: 0.5rem;
+      display: grid;
+      justify-content: center;
+      align-content: space-evenly;
+      width: 3rem;
+      height: 3rem;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 3;
+      outline: none;
+      margin-left: 0.5rem;
+
+      &--line {
+         display: block;
+         width: 30px;
+         height: 3px;
+         background-color: #222;
+         /*from hamburger to cross*/
+         transition: 0.4s;
+
+         &:first-child {
+            margin-top: unset;
+         }
+      }
+   }
+
+   &__wrapper {
+      display: none;
+   }
+
+   &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      &--item {
+         list-style: none;
+
+         > a {
+            text-decoration: none;
+            color: var(--text-color-80);
+         }
+      }
+   }
+}
+
+.btn {
+   border: none;
+
+   &__contact {
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+      color: var(--text-color-80);
+      background-color: var(--overlay-color-10);
+      border: 2px solid var(--border-color-10);
+      border-radius: 100rem;
+      margin-left: auto;
+
+      &:hover {
+         background-color: var(--overlay-color-20);
+      }
+   }
+
+   &__read-more {
+      display: flex;
+      gap: 0.5rem;
+      padding: 1rem 1.5rem;
+      color: var(--text-color-invert);
+      font-size: 1rem;
+      font-weight: 500;
+      width: fit-content;
+      border-radius: 10rem;
+      border: 2px solid var(--border-color-10);
+      background: linear-gradient(180deg, #0d0e0f 0%, #51555c 100%);
+      margin-top: 0.5rem;
+
+      &:hover {
+         background-color: linear-gradient(
+            180deg,
+            hsl(210, 7%, 12%) 0%,
+            hsl(218, 6%, 42%) 100%
+         );
+      }
+   }
+}
+
+.body {
+   display: grid;
+}
+
+.area {
+   width: 100%;
+   height: 100vh;
+   position: fixed;
+   inset: 0;
+   z-index: -1;
+}
+
+.circles {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+}
+
+.circles li {
+   position: absolute;
+   display: block;
+   list-style: none;
+   width: 1.5rem;
+   height: 1.5rem;
+   background: var(--overlay-color-10);
+   animation: animate 12s linear infinite;
+   bottom: -6rem;
+   border-radius: 12%;
+}
+
+.circles li:nth-child(1) {
+   left: 25%;
+   width: 6rem;
+   height: 6rem;
+   animation-delay: 0s;
+}
+
+.circles li:nth-child(2) {
+   left: 10%;
+   width: 1rem;
+   height: 1rem;
+   animation-delay: 2s;
+   animation-duration: 12s;
+}
+
+.circles li:nth-child(3) {
+   left: 70%;
+   width: 1.25rem;
+   height: 1.25rem;
+   animation-delay: 2s;
+}
+
+.circles li:nth-child(4) {
+   left: 40%;
+   width: 60px;
+   height: 60px;
+   animation-delay: 0s;
+   animation-duration: 18s;
+}
+
+.circles li:nth-child(5) {
+   left: 65%;
+   width: 1.25rem;
+   height: 1.25rem;
+   animation-delay: 1s;
+}
+
+.circles li:nth-child(6) {
+   left: 75%;
+   width: 9rem;
+   height: 9rem;
+   animation-delay: 2s;
+}
+
+.circles li:nth-child(7) {
+   left: 35%;
+   width: 12rem;
+   height: 12rem;
+   animation-delay: 1s;
+}
+
+.circles li:nth-child(8) {
+   left: 50%;
+   width: 1.5rem;
+   height: 1.5rem;
+   animation-delay: 2s;
+   animation-duration: 45s;
+}
+
+.circles li:nth-child(9) {
+   left: 20%;
+   width: 1rem;
+   height: 1rem;
+   animation-delay: 1s;
+   animation-duration: 35s;
+}
+
+.circles li:nth-child(10) {
+   left: 85%;
+   width: 12rem;
+   height: 12rem;
+   animation-delay: 0s;
+   animation-duration: 11s;
+}
+
+@keyframes animate {
+   0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+   }
+
+   100% {
+      transform: translateY(-1000px) rotate(720deg);
+      opacity: 0;
+   }
+}
+
+.hero {
+   &__content {
+      height: calc(100vh - 5rem);
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 1rem;
+      justify-content: center;
+      gap: 0.5rem;
+
+      &--main {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         height: 100%;
+         gap: 0.5rem;
+      }
+   }
+
+   &__title {
+      font-size: 2rem;
+      line-height: 2.5rem;
+      font-weight: 600;
+      color: var(--text-color-100);
+   }
+
+   &__highlight {
+      color: #5f14e1;
+   }
+
+   &__subtext {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      font-weight: 400;
+      color: var(--text-color-80);
+   }
+}
+
+/* Shiny CTA */
+@property --gradient-angle {
+   syntax: "<angle>";
+   initial-value: 0deg;
+   inherits: false;
+}
+
+@property --gradient-angle-offset {
+   syntax: "<angle>";
+   initial-value: 0deg;
+   inherits: false;
+}
+
+@property --gradient-percent {
+   syntax: "<percentage>";
+   initial-value: 5%;
+   inherits: false;
+}
+
+@property --gradient-shine {
+   syntax: "<color>";
+   initial-value: white;
+   inherits: false;
+}
+
+.btn__CTA {
+   display: flex;
+   gap: 0.5rem;
+   --animation: gradient-angle linear infinite;
+   --duration: 3s;
+   --shadow-size: 2px;
+   isolation: isolate;
+   position: relative;
+   overflow: hidden;
+   cursor: pointer;
+   outline-offset: 4px;
+   padding: 1.25rem 2.5rem;
+   font-family: inherit;
+   font-size: 1.125rem;
+   line-height: 1.2;
+   border: 1px solid transparent;
+   border-radius: 360px;
+   color: var(--shiny-cta-text);
+   background: linear-gradient(var(--shiny-cta-bg), var(--shiny-cta-bg))
+         padding-box,
+      conic-gradient(
+            from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+            transparent,
+            var(--shiny-cta-highlight) var(--gradient-percent),
+            var(--gradient-shine) calc(var(--gradient-percent) * 2),
+            var(--shiny-cta-highlight) calc(var(--gradient-percent) * 3),
+            transparent calc(var(--gradient-percent) * 4)
+         )
+         border-box;
+   box-shadow: inset 0 0 0 1px var(--shiny-cta-border-subtle);
+   width: fit-content;
+
+   &::before,
+   &::after,
+   span::before {
+      content: "";
+      pointer-events: none;
+      position: absolute;
+      inset-inline-start: 50%;
+      inset-block-start: 50%;
+      translate: -50% -50%;
+      z-index: -1;
+   }
+
+   &:active {
+      translate: 0 1px;
+   }
+}
+
+/* Dots pattern */
+.btn__CTA::before {
+   --size: calc(100% - var(--shadow-size) * 3);
+   --position: 2px;
+   --space: calc(var(--position) * 2);
+   width: var(--size);
+   height: var(--size);
+   background: radial-gradient(
+         circle at var(--position) var(--position),
+         white calc(var(--position) / 4),
+         transparent 0
+      )
+      padding-box;
+   background-size: var(--space) var(--space);
+   background-repeat: space;
+   mask-image: conic-gradient(
+      from calc(var(--gradient-angle) + 45deg),
+      black,
+      transparent 10% 90%,
+      black
+   );
+   border-radius: inherit;
+   opacity: 0.4;
+   z-index: -1;
+}
+
+/* Inner shimmer */
+.btn__CTA::after {
+   --animation: shimmer linear infinite;
+   width: 100%;
+   aspect-ratio: 1;
+   background: linear-gradient(
+      -50deg,
+      transparent,
+      var(--shiny-cta-highlight),
+      transparent
+   );
+   mask-image: radial-gradient(circle at bottom, transparent 40%, rgb(0, 0, 0));
+   opacity: 0.6;
+}
+
+.btn__CTA span {
+   z-index: 1;
+
+   &::before {
+      --size: calc(100% + 1rem);
+      width: var(--size);
+      height: var(--size);
+      box-shadow: inset 0 -1ex 2rem 4px var(--shiny-cta-highlight);
+      opacity: 0;
+   }
+}
+
+/* Animate */
+.btn__CTA {
+   --transition: 800ms cubic-bezier(0.25, 1, 0.5, 1);
+   transition: var(--transition);
+   transition-property: --gradient-angle-offset, --gradient-percent,
+      --gradient-shine;
+
+   &,
+   &::before,
+   &::after {
+      animation: var(--animation) var(--duration),
+         var(--animation) calc(var(--duration) / 0.4) reverse paused;
+      animation-composition: add;
+   }
+
+   span::before {
+      transition: opacity var(--transition);
+      animation: calc(var(--duration) * 1.5) breathe linear infinite;
+   }
+}
+
+.shiny-cta:is(:hover, :focus-visible) {
+   --gradient-percent: 20%;
+   --gradient-angle-offset: 95deg;
+   --gradient-shine: var(--shiny-cta-highlight-subtle);
+
+   &,
+   &::before,
+   &::after {
+      animation-play-state: running;
+   }
+
+   span::before {
+      opacity: 1;
+   }
+}
+
+@keyframes gradient-angle {
+   to {
+      --gradient-angle: 360deg;
+   }
+}
+
+@keyframes shimmer {
+   to {
+      rotate: 360deg;
+   }
+}
+
+@keyframes breathe {
+   from,
+   to {
+      scale: 1;
+   }
+   50% {
+      scale: 1.2;
+   }
+}
+
+.industry-tags {
+   display: flex;
+   gap: 0.5rem;
+   flex-wrap: wrap;
+
+   &__tag {
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--bg-color-90);
+      border-radius: 10rem;
+      color: var(--text-color-80);
+   }
+}
+
+.work {
+   &__list {
+      display: grid;
+      gap: 2rem;
+      padding: 3rem 1rem;
+   }
+
+   &__item {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      width: 100%;
+      height: 24rem;
+      border-radius: 1rem;
+      overflow: hidden;
+
+      &--one {
+         background: linear-gradient(90deg, #afedfd 0%, #dbd9f2 100%);
+      }
+      &--two {
+         background: linear-gradient(
+            90deg,
+            #f3e7e9 0%,
+            #e3eeff 99%,
+            #e3eeff 100%
+         );
+      }
+      &--three {
+         background: linear-gradient(90deg, #abecd6 0%, #fbed96 100%);
+      }
+      &--four {
+         background: linear-gradient(90deg, #dfe9f3 0%, #fff 100%);
+      }
+      &--five {
+         background: linear-gradient(
+            90deg,
+            #ddd6f3 0%,
+            #faaca8 100%,
+            #faaca8 100%
+         );
+      }
+      &--six {
+         background: linear-gradient(90deg, #fdfcfb 0%, #e2d1c3 100%);
+      }
+      &--seven {
+         background: linear-gradient(
+            90deg,
+            #b7f5e6 0%,
+            #edd2f9 48%,
+            #bcb4f9 100%
+         );
+      }
+      &--eight {
+         background: linear-gradient(90deg, #ffecd2 0%, #fcb69f 100%);
+      }
+   }
+
+   &__item-text {
+      width: 100%;
+      align-self: flex-end;
+      padding: 1.5rem;
+      display: grid;
+      gap: 0.5rem;
+   }
+
+   &__item-company {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-color-70);
+   }
+
+   &__item-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-color-100);
+   }
+
+   &__item-subtext {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-color-80);
+   }
+
+   &__img-wrapper {
+      > {
+         img {
+            width: 100%;
+            object-fit: contain;
+         }
+      }
+   }
+}
+
+.footer {
+   &__content {
+      padding: 1rem;
+      border-top: 1px solid var(--border-color-10);
+      overflow: hidden;
+   }
+
+   &__mail {
+      gap: 1rem;
+      font-size: 1.5rem;
+
+      &--hi {
+         color: var(--text-color-80);
+      }
+   }
+}
+
+.social-link {
+   border: none;
+   font-size: 2rem;
+   padding: 0.5rem;
+   border-radius: 0.25rem;
+   color: var(--text-color-90);
+   background-color: transparent;
+
+   &:hover {
+      background-color: var(--overlay-color-10);
+      transition: background-color 0.24s ease-in-out;
+   }
+}
+
+@media (min-width: 48rem) {
+   .hero {
+      &__content {
+         padding: 2rem 1.5rem;
+         gap: 1rem;
+      }
+
+      &__title {
+         font-size: 2.5rem;
+         line-height: 3rem;
+      }
+
+      &__subtext {
+         font-size: 1.25rem;
+         line-height: 1.75rem;
+      }
+   }
+
+   .work {
+      &__item-text {
+         padding: 3rem;
+      }
+   }
+}
+
+@media (min-width: 64rem) {
+   .btn {
+      &__contact {
+         margin-left: unset;
+      }
+   }
+   .navbar {
+      padding: 1rem 1.5rem;
+      justify-content: space-between;
+   }
+
+   .nav {
+      order: unset;
+
+      &__toggler {
+         display: none;
+      }
+
+      &__wrapper {
+         display: block;
+      }
+
+      &__list {
+         flex-direction: row;
+         font-size: 1.25rem;
+         position: static;
+         background-color: transparent;
+         inset: unset;
+
+         &--item {
+            > a {
+               padding: 0 0.25rem;
+               &:hover {
+                  border-bottom: 2px solid var(--text-color-100);
+               }
+            }
+         }
+      }
+   }
+
+   .hero {
+      &__content {
+         padding: 2rem 1.5rem;
+         gap: 1rem;
+      }
+
+      &__title {
+         font-size: 3rem;
+         line-height: 3.5rem;
+      }
+   }
+
+   .work {
+      &__item {
+         flex-direction: unset;
+         gap: 3rem;
+      }
+
+      &__img-wrapper {
+         margin-top: 2.5rem;
+      }
+   }
+}
+
+.footer {
+   &__content {
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+   }
+}
