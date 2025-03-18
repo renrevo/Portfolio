@@ -826,14 +826,17 @@ a {
       padding: 1rem;
       border-top: 1px solid var(--border-color-10);
       overflow: hidden;
+      display: grid;
+      gap: 1rem;
    }
 
    &__mail {
-      gap: 1rem;
-      font-size: 1.5rem;
+      gap: 0.5rem;
+      font-size: 1.25rem;
 
       &--hi {
          color: var(--text-color-80);
+         white-space: nowrap;
       }
    }
 }
@@ -889,6 +892,21 @@ a {
          }
       }
    }
+
+   .footer {
+      &__content {
+         padding: 1rem 1.5rem;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         gap: 0.5rem;
+      }
+
+      &__mail {
+         gap: 1rem;
+         font-size: 1.5rem;
+      }
+   }
 }
 
 @media (min-width: 64rem) {
@@ -941,15 +959,5 @@ a {
          font-size: 3rem;
          line-height: 3.5rem;
       }
-   }
-}
-
-.footer {
-   &__content {
-      padding: 1rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.5rem;
    }
 }
