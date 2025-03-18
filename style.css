@@ -278,7 +278,7 @@ a {
   white-space: nowrap;
   border-radius: 10rem;
   border: 2px solid var(--border-color-10);
-  background: linear-gradient(180deg, #0d0e0f 0%, #51555c 100%);
+  background-color: var(--bg-color-invert);
   margin-top: 0.5rem;
 }
 .btn__read-more:hover {
@@ -409,7 +409,7 @@ a {
   flex-direction: column;
   padding: 1.5rem 1rem;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 1.5rem;
 }
 .hero__content--main {
   display: flex;
@@ -466,7 +466,7 @@ a {
   overflow: hidden;
   cursor: pointer;
   outline-offset: 4px;
-  padding: 1.25rem 2.5rem;
+  padding: 1.25rem 2rem;
   font-family: inherit;
   font-size: 1.125rem;
   line-height: 1.2;
