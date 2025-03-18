@@ -732,8 +732,6 @@ a {
 
    &__item {
       list-style: none;
-      display: flex;
-      flex-direction: column;
       width: 100%;
       border-radius: 1rem;
       overflow: hidden;
@@ -779,6 +777,16 @@ a {
       }
    }
 
+   &__item-anchor {
+      display: flex;
+      flex-direction: column;
+
+      &:hover > .work__img-wrapper {
+         transform: scale3d(1.05, 1.05, 1.05);
+         transition: transform 0.24s ease-in-out;
+      }
+   }
+
    &__item-text {
       width: 100%;
       align-self: flex-end;
@@ -808,6 +816,7 @@ a {
    &__img-wrapper {
       margin-left: 1.5rem;
       margin-right: 1.5rem;
+
       > {
          img {
             display: block;
@@ -873,9 +882,10 @@ a {
    }
 
    .work {
-      &__item {
-         height: 24rem;
+
+      &__item-anchor {
          flex-direction: unset;
+         height: 24rem;
       }
 
       &__item-text {

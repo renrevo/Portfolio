@@ -593,8 +593,6 @@ a {
 }
 .work__item {
   list-style: none;
-  display: flex;
-  flex-direction: column;
   width: 100%;
   border-radius: 1rem;
   overflow: hidden;
@@ -622,6 +620,14 @@ a {
 }
 .work__item--eight {
   background: linear-gradient(90deg, #ffecd2 0%, #fcb69f 100%);
+}
+.work__item-anchor {
+  display: flex;
+  flex-direction: column;
+}
+.work__item-anchor:hover > .work__img-wrapper {
+  transform: scale3d(1.05, 1.05, 1.05);
+  transition: transform 0.24s ease-in-out;
 }
 .work__item-text {
   width: 100%;
@@ -701,9 +707,9 @@ a {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
-  .work__item {
-    height: 24rem;
+  .work__item-anchor {
     flex-direction: unset;
+    height: 24rem;
   }
   .work__item-text {
     padding: 2.5rem;
