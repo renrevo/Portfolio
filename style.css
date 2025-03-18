@@ -185,7 +185,7 @@ a {
 }
 .brand > img {
   height: 3rem;
-  border: 1px solid var(--border-color-10);
+  border-radius: 0.5rem;
 }
 .brand > p {
   font-size: 1.25rem;
@@ -707,11 +707,11 @@ a {
     flex-direction: unset;
   }
   .work__item-text {
-    padding: 3rem;
+    padding: 2rem;
   }
   .work__img-wrapper {
     margin-left: unset;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
   }
   .work__img-wrapper > img {
     width: unset;

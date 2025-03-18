@@ -254,7 +254,7 @@ a {
 
    > img {
       height: 3rem;
-      border: 1px solid var(--border-color-10);
+      border-radius: 0.5rem;
    }
 
    > p {
@@ -880,12 +880,12 @@ a {
       }
 
       &__item-text {
-         padding: 3rem;
+         padding: 2rem;
       }
 
       &__img-wrapper {
          margin-left: unset;
-         margin-top: 2.5rem;
+         margin-top: 2rem;
          > img {
             width: unset;
             height: 100%;
