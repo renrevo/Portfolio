@@ -257,10 +257,11 @@ a {
 }
 .btn__contact {
   font-size: 1rem;
+  font-weight: 600;
   padding: 0.75rem 1.5rem;
   color: var(--text-color-80);
   background-color: var(--overlay-color-10);
-  border: 2px solid var(--border-color-10);
+  border: 2px solid var(--text-color-80);
   border-radius: 100rem;
   margin-left: auto;
 }
@@ -646,6 +647,7 @@ a {
 }
 .work__img-wrapper {
   margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 .work__img-wrapper > img {
   display: block;
@@ -704,11 +706,12 @@ a {
     flex-direction: unset;
   }
   .work__item-text {
-    padding: 2rem;
+    padding: 2.5rem;
   }
   .work__img-wrapper {
     margin-left: unset;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
+    margin-right: 2.5rem;
   }
   .work__img-wrapper > img {
     width: unset;
