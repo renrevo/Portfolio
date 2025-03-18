@@ -196,6 +196,7 @@ a {
 .header {
   -webkit-backdrop-filter: blur(2rem);
           backdrop-filter: blur(2rem);
+  display: block;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -282,10 +283,6 @@ a {
 }
 .btn__read-more:hover {
   background-color: linear-gradient(180deg, hsl(210, 7%, 12%) 0%, hsl(218, 6%, 42%) 100%);
-}
-
-.body {
-  display: grid;
 }
 
 .area {
