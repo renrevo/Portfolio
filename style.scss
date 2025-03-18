@@ -355,9 +355,7 @@ a {
       width: fit-content;
       white-space: nowrap;
       border-radius: 10rem;
-      border: 2px solid var(--border-color-10);
-      // background: linear-gradient(180deg, #0d0e0f 0%, #51555c 100%);
-      background-color: var(--bg-color-invert);
+      background: linear-gradient(180deg, #0d0e0f 0%, #51555c 100%);
       margin-top: 0.5rem;
 
       &:hover {
@@ -376,7 +374,7 @@ a {
 
 .area {
    width: 100%;
-   height: 100vh;
+   height: 100dvh;
    position: fixed;
    inset: 0;
    z-index: -1;
@@ -492,7 +490,7 @@ a {
 
 .hero {
    &__content {
-      height: calc(100vh - 5rem);
+      height: calc(100dvh - 5rem);
       display: flex;
       flex-direction: column;
       padding: 1.5rem 1rem;
