@@ -210,8 +210,10 @@ a {
 
 .nav {
   order: 2;
+  /*close icon*/
 }
 .nav__toggler {
+  position: relative;
   padding: 0.5rem;
   display: grid;
   justify-content: center;
@@ -236,20 +238,50 @@ a {
 .nav__toggler--line:first-child {
   margin-top: unset;
 }
+.nav__cross .nav__toggler--line:nth-child(1) {
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+.nav__cross .nav__toggler--line:nth-child(2) {
+  opacity: 0;
+}
+.nav__cross .nav__toggler--line:nth-child(3) {
+  transform: rotate(45deg) translate(-7px, -5px);
+}
 .nav__wrapper {
-  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100dvh;
+  display: grid;
+  padding-top: 6.5rem;
+  padding-bottom: 1.5rem;
+  background-color: var(--bg-color-100);
+  will-change: transform;
+  transition: transform 0.48s ease-in-out;
+  transform: translateY(-100%);
+}
+.nav__active {
+  transform: translateY(0%);
 }
 .nav__list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
 }
 .nav__list--item {
   list-style: none;
+  display: flex;
+  font-size: 3rem;
+  font-weight: 500;
 }
 .nav__list--item > a {
   text-decoration: none;
+  width: 100%;
   color: var(--text-color-80);
+  padding: 0.25rem 1.5rem;
+}
+.nav__list--item > a:hover {
+  background-color: var(--overlay-color-10);
 }
 
 .btn {
@@ -491,12 +523,12 @@ a {
 
 /* Dots pattern */
 .btn__CTA::before {
-  --size: calc(100% - var(--shadow-size) * 3);
+  --size: calc(100% - var(--shadow-size) * 0.25);
   --position: 2px;
   --space: calc(var(--position) * 2);
   width: var(--size);
   height: var(--size);
-  background: radial-gradient(circle at var(--position) var(--position), white calc(var(--position) / 4), transparent 0) padding-box;
+  background: radial-gradient(circle at var(--position) var(--position), var(--text-color-invert) calc(var(--position) / 4), transparent 0) padding-box;
   background-size: var(--space) var(--space);
   background-repeat: space;
   -webkit-mask-image: conic-gradient(from calc(var(--gradient-angle) + 45deg), black, transparent 10% 90%, black);
@@ -750,20 +782,30 @@ a {
     display: none;
   }
   .nav__wrapper {
+    position: unset;
     display: block;
+    padding: unset;
+    background-color: unset;
+    height: unset;
+    transform: translateY(0);
   }
   .nav__list {
     flex-direction: row;
-    font-size: 1.25rem;
+    gap: 1.5rem;
     position: static;
     background-color: transparent;
     inset: unset;
   }
+  .nav__list--item {
+    font-size: 1.25rem;
+  }
   .nav__list--item > a {
     padding: 0 0.25rem;
+    transition: all 0.24s ease-in-out;
   }
   .nav__list--item > a:hover {
     border-bottom: 2px solid var(--text-color-100);
+    background-color: unset;
   }
   .hero__content {
     padding: 2rem 1.5rem;

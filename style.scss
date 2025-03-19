@@ -282,6 +282,7 @@ a {
    order: 2;
 
    &__toggler {
+      position: relative;
       padding: 0.5rem;
       display: grid;
       justify-content: center;
@@ -307,23 +308,61 @@ a {
             margin-top: unset;
          }
       }
+      
+   }
+   
+
+   /*close icon*/
+   &__cross &__toggler--line:nth-child(1) {
+      transform: rotate(-45deg) translate(-9px, 6px);
+   }
+
+   &__cross &__toggler--line:nth-child(2) {
+      opacity: 0;
+   }
+
+   &__cross &__toggler--line:nth-child(3) {
+      transform: rotate(45deg) translate(-7px, -5px);
    }
 
    &__wrapper {
-      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100dvh;
+      display: grid;
+      padding-top: 6.5rem;
+      padding-bottom: 1.5rem;
+      background-color: var(--bg-color-100);
+      will-change: transform;
+      transition: transform 0.48s ease-in-out;
+      transform: translateY(-100%);
+   }
+
+   &__active {
+      transform: translateY(0%);
    }
 
    &__list {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
 
       &--item {
          list-style: none;
+         display: flex;
+         font-size: 3rem;
+         font-weight: 500;
 
          > a {
             text-decoration: none;
+            width: 100%;
             color: var(--text-color-80);
+            padding: 0.25rem 1.5rem;
+
+            &:hover {
+               background-color: var(--overlay-color-10);
+            }
          }
       }
    }
@@ -599,14 +638,14 @@ a {
 
 /* Dots pattern */
 .btn__CTA::before {
-   --size: calc(100% - var(--shadow-size) * 3);
+   --size: calc(100% - var(--shadow-size) * 0.25);
    --position: 2px;
    --space: calc(var(--position) * 2);
    width: var(--size);
    height: var(--size);
    background: radial-gradient(
          circle at var(--position) var(--position),
-         white calc(var(--position) / 4),
+         var(--text-color-invert) calc(var(--position) / 4),
          transparent 0
       )
       padding-box;
@@ -882,7 +921,6 @@ a {
    }
 
    .work {
-
       &__item-anchor {
          flex-direction: unset;
          height: 24rem;
@@ -938,21 +976,30 @@ a {
       }
 
       &__wrapper {
+         position: unset;
          display: block;
+         padding: unset;
+         background-color: unset;
+         height: unset;
+         transform: translateY(0);
       }
 
       &__list {
          flex-direction: row;
-         font-size: 1.25rem;
+         gap: 1.5rem;
          position: static;
          background-color: transparent;
          inset: unset;
 
          &--item {
+            font-size: 1.25rem;
+
             > a {
                padding: 0 0.25rem;
+               transition: all 0.24s ease-in-out;
                &:hover {
                   border-bottom: 2px solid var(--text-color-100);
+                  background-color: unset;
                }
             }
          }
