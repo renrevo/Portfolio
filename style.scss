@@ -308,9 +308,7 @@ a {
             margin-top: unset;
          }
       }
-      
    }
-   
 
    /*close icon*/
    &__cross &__toggler--line:nth-child(1) {
@@ -387,6 +385,7 @@ a {
    }
 
    &__read-more {
+      cursor: pointer;
       display: flex;
       gap: 0.5rem;
       padding: 1rem 1.5rem;
@@ -559,6 +558,32 @@ a {
       line-height: 1.5rem;
       font-weight: 400;
       color: var(--text-color-80);
+   }
+
+   &-work {
+      &__content {
+         height: calc(40vh - 5rem);
+         display: flex;
+         flex-direction: column;
+         padding: 2rem 1rem;
+         justify-content: center;
+         gap: 1.5rem;
+
+         &--main {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 100%;
+            gap: 0.5rem;
+         }
+      }
+
+      &__title {
+         font-size: 2rem;
+         line-height: 2.25rem;
+         font-weight: 600;
+         color: var(--text-color-100);
+      }
    }
 }
 
@@ -754,11 +779,62 @@ a {
    flex-wrap: wrap;
 
    &__tag {
+      width: fit-content;
       font-size: 0.875rem;
       padding: 0.5rem 1rem;
       background-color: var(--bg-color-90);
       border-radius: 10rem;
       color: var(--text-color-80);
+
+      &--green {
+         background-color: hsl(132, 72%, 78%);
+      }
+   }
+}
+
+.parallax {
+   align-content: center;
+   align-items: center;
+   background-color: var(--bg-color-90);
+   display: flex;
+   flex: none;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   gap: 10px;
+   height: 60vh;
+   justify-content: center;
+   max-width: 100%;
+   overflow: hidden;
+   padding: 0;
+   position: relative;
+   width: 100%;
+
+   &__wrapper {
+      will-change: transform;
+      opacity: 1;
+      transform: none;
+      flex: none;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      right: 0;
+   }
+
+   &__img {
+      position: absolute;
+      border-radius: inherit;
+      inset: 0;
+      perspective: 1px;
+      transform-style: preserve-3d;
+      > img {
+         display: block;
+         width: 100%;
+         height: 100%;
+         border-radius: inherit;
+         object-position: center;
+         object-fit: cover;
+         transform: translateZ(-1px) scale(2);
+      }
    }
 }
 
@@ -868,6 +944,41 @@ a {
    }
 }
 
+.project {
+
+   &-detail {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+
+      &__content {
+         display: grid;
+         gap: 1.5rem;
+         background-color: var(--bg-color-90);
+         padding: 1.5rem 1rem;
+         border-radius: 0.5rem;
+      }
+
+      &__item {
+         list-style: none;
+         padding-top: 0.5rem;
+         padding-bottom: 0.5rem;
+
+         &:nth-child(n+2) {
+            border-top: 1px solid var(--border-color-10);
+         }
+
+         > label {
+            color: var(--text-color-70);
+         }
+
+         > p {
+            color: var(--text-color-90);
+            margin-top: 0.25rem;
+         }
+      }
+   }
+}
+
 .footer {
    &__content {
       padding: 1rem;
@@ -904,17 +1015,17 @@ a {
 
 @media (min-width: 48rem) {
    .hero {
-      &__content {
+      &__content, &-work__content {
          padding: 2rem 1.5rem;
          gap: 1rem;
       }
 
-      &__title {
+      &__title, &-work__title {
          font-size: 2.5rem;
          line-height: 3rem;
       }
 
-      &__subtext {
+      &__subtext, &-work__subtext {
          font-size: 1.25rem;
          line-height: 1.75rem;
       }
@@ -937,6 +1048,21 @@ a {
          > img {
             width: unset;
             height: 100%;
+         }
+      }
+   }
+
+   .project {
+      
+      &-detail {
+         padding-top: 3rem;
+         padding-bottom: 3rem;
+   
+         &__content {
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            background-color: var(--bg-color-90);
+            padding: 1.5rem 3rem;
          }
       }
    }
@@ -1007,12 +1133,12 @@ a {
    }
 
    .hero {
-      &__content {
+      &__content, &-work__content {
          padding: 2rem 1.5rem;
          gap: 1rem;
       }
 
-      &__title {
+      &__title, &-work__title {
          font-size: 3rem;
          line-height: 3.5rem;
       }
