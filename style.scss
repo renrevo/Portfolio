@@ -956,6 +956,8 @@ a {
          background-color: var(--bg-color-90);
          padding: 1.5rem 1rem;
          border-radius: 0.5rem;
+         margin-left: 1rem;
+         margin-right: 1rem;
       }
 
       &__item {
@@ -967,12 +969,17 @@ a {
             border-top: 1px solid var(--border-color-10);
          }
 
+         &:last-child {
+            padding-bottom: unset;
+         }
+
          > label {
-            color: var(--text-color-70);
+            color: var(--text-color-80);
          }
 
          > p {
             color: var(--text-color-90);
+            font-weight: 500;
             margin-top: 0.25rem;
          }
       }
@@ -1063,6 +1070,7 @@ a {
             gap: 3rem;
             background-color: var(--bg-color-90);
             padding: 1.5rem 3rem;
+            margin: unset;
          }
       }
    }
