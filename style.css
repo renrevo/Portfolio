@@ -699,33 +699,43 @@ a {
   align-items: center;
 }
 .experience__company--img {
-  width: 3rem;
-  height: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
   background-color: var(--bg-color-90);
-  border: 1px solid var(--border-color-10);
   border-radius: 0.5rem;
   display: block;
 }
-.experience__company--name {
-  font-size: 1.25rem;
-  line-height: 2rem;
-  font-weight: 500;
-  color: var(--text-color-100);
-}
-.experience__designations {
+.experience__company--text {
   display: grid;
   gap: 0.25rem;
 }
+.experience__company--name {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+  color: var(--text-color-100);
+}
+.experience__period {
+  color: var(--text-color-70);
+  line-height: 1.5rem;
+}
+.experience__designations {
+  display: grid;
+  gap: 0.5rem;
+}
 .experience__designation {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.experience__designation > span {
+  display: none;
 }
 .experience__designation--title {
   color: var(--text-color-90);
 }
 .experience__designation--period {
-  color: var(--text-color-80);
+  color: var(--text-color-70);
 }
 
 .parallax {
@@ -993,6 +1003,14 @@ a {
   .experience__item {
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
+  }
+  .experience__designation {
+    flex-direction: unset;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .experience__designation > span {
+    display: block;
   }
   .work__item-anchor {
     flex-direction: unset;
