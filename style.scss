@@ -368,42 +368,26 @@ a {
 
 .btn {
    border: none;
-
-   &__contact {
-      font-size: 1rem;
-      font-weight: 600;
-      padding: 0.75rem 1.5rem;
-      color: var(--text-color-80);
-      background-color: var(--overlay-color-10);
-      border: 2px solid var(--text-color-80);
-      border-radius: 100rem;
-      margin-left: auto;
-
-      &:hover {
-         background-color: var(--overlay-color-20);
-      }
-   }
-
-   &__read-more {
+   
+   &__contact, &__read-more {
       cursor: pointer;
       display: flex;
       gap: 0.5rem;
       padding: 1rem 1.5rem;
-      color: var(--text-color-invert);
+      color: var(--text-color-100);
       font-size: 1rem;
       font-weight: 500;
       width: fit-content;
       white-space: nowrap;
+      border: 2px solid var(--text-color-80);
       border-radius: 10rem;
-      background: linear-gradient(180deg, #0d0e0f 0%, #51555c 100%);
       margin-top: 0.5rem;
+      background-color: transparent;
+      transition: background-color .48s ease-in-out, color .48s ease-in-out;
 
       &:hover {
-         background-color: linear-gradient(
-            180deg,
-            hsl(210, 7%, 12%) 0%,
-            hsl(218, 6%, 42%) 100%
-         );
+         background-color: var(--bg-color-invert);
+         color: var(--text-color-invert);
       }
    }
 }
@@ -1190,10 +1174,11 @@ a {
    border-radius: 0.25rem;
    color: var(--text-color-90);
    background-color: transparent;
+   opacity: 0.8;
 
    &:hover {
-      background-color: var(--overlay-color-10);
-      transition: background-color 0.24s ease-in-out;
+      opacity: 1;
+      transition: opacity 0.24s ease-in-out;
    }
 }
 

@@ -20,7 +20,6 @@
       <!-- <meta name="twitter:image" content="https://prateek.design/thumbnail.jpg"> -->
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
       <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
       <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
       <link rel="stylesheet" href="style.css" />
@@ -30,7 +29,7 @@
          <div class="container">
             <div class="navbar">
                <a href="index.html" class="brand">
-                  <img src="assets/Brand/Logo.svg" alt="logo" />
+                  <img src="assets/brand/Logo.svg" alt="logo" />
                </a>
                <nav class="nav">
                   <button class="nav__toggler">
@@ -40,7 +39,7 @@
                   </button>
                   <div class="nav__wrapper">
                      <ul class="nav__list">
-                        <li class="nav__list--item"><a href="">Work</a></li>
+                        <li class="nav__list--item"><a href="./pages/work.html">Work</a></li>
                         <li class="nav__list--item"><a href="">Process</a></li>
                         <li class="nav__list--item"><a href="./pages/about.html">About</a></li>
                      </ul>
@@ -84,6 +83,7 @@
                         innovative and intuitive SaaS products
                      </p>
                      <button class="btn__CTA">
+                        <img src="./assets/icons/download-line.svg" alt="download icon">
                         <span>Download CV</span>
                      </button>
                   </div>
@@ -105,7 +105,7 @@
             <div class="container">
                <div class="section__content">
                   <div class="section">
-                     <h2 class="section__title">Work</h2>
+                     <h2 class="section__title">Featured Work</h2>
                      <div class="section__divider"></div>
                   </div>
                   <ul class="work__list">
@@ -118,7 +118,9 @@
                                  Trading platform enabling private stock trading, SBA
                                  (7a) loans, and auctions.
                               </p>
-                              <button class="btn__read-more"><span>Read More</span></button>
+                              <button class="btn__read-more">
+                                 <span>Read More</span>
+                              </button>
                            </div>
                            <div class="work__img-wrapper">
                               <img
@@ -207,79 +209,6 @@
                            </div>
                         </a>
                      </li>
-                     <li class="work__item work__item--six" data-aos="fade-up">
-                        <a href="" class="work__item-anchor">
-                           <div class="work__item-text">
-                              <p class="work__item-company">Flix</p>
-                              <h3 class="work__item-title">Triply</h3>
-                              <p class="work__item-subtext">
-                                 A scheduled taxi service platform designed for office
-                                 workers.
-                              </p>
-                              <button class="btn__read-more"><span>Read More</span></button>
-                           </div>
-                           <div class="work__img-wrapper">
-                              <img
-                                 src="./assets/images/LiquidityShowcase.png"
-                                 alt="cover image"
-                              />
-                           </div>
-                        </a>
-                     </li>
-                     <li class="work__item work__item--seven" data-aos="fade-up">
-                        <a href="" class="work__item-anchor">
-                           <div class="work__item-text">
-                              <p class="work__item-company">Nixet</p>
-                              <h3 class="work__item-title">Pro Clinic</h3>
-                              <p class="work__item-subtext">Some text</p>
-                              <button class="btn__read-more"><span>Read More</span></button>
-                           </div>
-                           <div class="work__img-wrapper">
-                              <img
-                                 src="./assets/images/LiquidityShowcase.png"
-                                 alt="cover image"
-                              />
-                           </div>
-                        </a>
-                     </li>
-                     <li class="work__item work__item--eight" data-aos="fade-up">
-                        <a href="" class="work__item-anchor">
-                           <div class="work__item-text">
-                              <p class="work__item-company">Nixet</p>
-                              <h3 class="work__item-title">Nich</h3>
-                              <p class="work__item-subtext">
-                                 A shoppable video platform focusing on seamless
-                                 browsing and purchasing experiences.
-                              </p>
-                              <button class="btn__read-more"><span>Read More</span></button>
-                           </div>
-                           <div class="work__img-wrapper">
-                              <img
-                                 src="./assets/images/LiquidityShowcase.png"
-                                 alt="cover image"
-                              />
-                           </div>
-                        </a>
-                     </li>
-                     <li class="work__item work__item--nine" data-aos="fade-up">
-                        <a href="" class="work__item-anchor">
-                           <div class="work__item-text">
-                              <p class="work__item-company">Techligent Systems</p>
-                              <h3 class="work__item-title">Timekper</h3>
-                              <p class="work__item-subtext">
-                                 A comprehensive timesheet management portal for
-                                 effective employee time tracking.
-                              </p>
-                              <button class="btn__read-more"><span>Read More</span></button>
-                           </div>
-                           <div class="work__img-wrapper">
-                              <img
-                                 src="./assets/images/LiquidityShowcase.png"
-                                 alt="cover image"
-                              />
-                           </div>
-                        </a>
-                     </li>
                   </ul>
                </div>
             </div>
@@ -300,7 +229,7 @@
                   <ul class="experience__list">
                      <li class="experience__item" data-aos="fade-up">
                         <div class="experience__company">
-                           <img class="experience__company--img" src="./assets/Brand/ComplianceInnovationIcon.svg" alt="experience company icon">
+                           <img class="experience__company--img" src="./assets/brand/ComplianceInnovationIcon.svg" alt="experience company icon">
                            <div class="experience__company--text">
                               <h4 class="experience__company--name">Compliance Innovation</h4>
                               <p class="experience__period">3 years and counting</p>
@@ -321,7 +250,7 @@
                      </li>
                      <li class="experience__item" data-aos="fade-up">
                         <div class="experience__company">
-                           <img class="experience__company--img" src="./assets/Brand/NixetIcon.svg" alt="experience company icon">
+                           <img class="experience__company--img" src="./assets/brand/NixetIcon.svg" alt="experience company icon">
                            <div class="experience__company--text">
                               <h4 class="experience__company--name">Nixet Technology</h4>
                               <p class="experience__period">4 months</p>
@@ -337,7 +266,7 @@
                      </li>
                      <li class="experience__item" data-aos="fade-up">
                         <div class="experience__company">
-                           <img class="experience__company--img" src="./assets/Brand/TechligentIcon.svg" alt="experience company icon">
+                           <img class="experience__company--img" src="./assets/brand/TechligentIcon.svg" alt="experience company icon">
                            <div class="experience__company--text">
                               <h4 class="experience__company--name">Techligent Systems</h4>
                               <p class="experience__period">2 years 3 months</p>
@@ -370,20 +299,23 @@
                      href="https://dribbble.com/renrevo"
                      target="_blank"
                      class="social-link"
-                     ><i class="ri-dribbble-line"></i
-                  ></a>
-                  <a
-                     href="https://codepen.io/renrevo"
-                     target="_blank"
-                     class="social-link"
-                     ><i class="ri-codepen-fill"></i
-                  ></a>
+                     >
+                     <img src="./assets/icons/dribbble-line.svg" alt="dribbble icon">
+                  </a>
                   <a
                      href="https://www.linkedin.com/in/renrevo/"
                      target="_blank"
                      class="social-link"
-                     ><i class="ri-linkedin-box-fill"></i
-                  ></a>
+                     >
+                     <img src="./assets/icons/linkedin-box-line.svg" alt="linkedin icon">
+                  </a>
+                  <a
+                     href="https://codepen.io/renrevo"
+                     target="_blank"
+                     class="social-link"
+                     >
+                     <img src="./assets/icons/codepen-line.svg" alt="codepen icon">
+                  </a>
                </div>
             </div>
          </div>
