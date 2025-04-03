@@ -287,6 +287,9 @@ a {
 .btn {
   border: none;
 }
+.btn__contact {
+  margin-left: auto;
+}
 .btn__contact, .btn__read-more {
   cursor: pointer;
   display: flex;

@@ -368,6 +368,10 @@ a {
 
 .btn {
    border: none;
+
+   &__contact {
+      margin-left: auto;
+   }
    
    &__contact, &__read-more {
       cursor: pointer;
