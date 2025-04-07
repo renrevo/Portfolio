@@ -280,6 +280,7 @@ a {
 
 .nav {
    order: 2;
+   margin-left: auto;
 
    &__toggler {
       position: relative;
@@ -294,7 +295,6 @@ a {
       cursor: pointer;
       z-index: 3;
       outline: none;
-      margin-left: 0.5rem;
 
       &--line {
          display: block;
@@ -369,8 +369,64 @@ a {
 .btn {
    border: none;
 
-   &__contact {
-      margin-left: auto;
+   &-group {
+      display: flex;
+      gap: 0.5rem;
+   }
+
+   &__CTA {
+      display: flex;
+      gap: 0.5rem;
+      --animation: gradient-angle linear infinite;
+      --duration: 3s;
+      --shadow-size: 2px;
+      isolation: isolate;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      outline-offset: 4px;
+      padding: 1rem 1.5rem;
+      font-family: inherit;
+      font-size: 1rem;
+      line-height: 1.2;
+      border: 1px solid transparent;
+      border-radius: 360px;
+      color: var(--shiny-cta-text);
+      background: linear-gradient(var(--shiny-cta-bg), var(--shiny-cta-bg))
+            padding-box,
+         conic-gradient(
+               from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+               transparent,
+               var(--shiny-cta-highlight) var(--gradient-percent),
+               var(--gradient-shine) calc(var(--gradient-percent) * 2),
+               var(--shiny-cta-highlight) calc(var(--gradient-percent) * 3),
+               transparent calc(var(--gradient-percent) * 4)
+            )
+            border-box;
+      box-shadow: inset 0 0 0 1px var(--shiny-cta-border-subtle);
+      width: fit-content;
+
+      > span {
+         white-space: nowrap;
+         display: flex;
+         align-items: center;
+      }
+   
+      &::before,
+      &::after,
+      span::before {
+         content: "";
+         pointer-events: none;
+         position: absolute;
+         inset-inline-start: 50%;
+         inset-block-start: 50%;
+         translate: -50% -50%;
+         z-index: -1;
+      }
+   
+      &:active {
+         translate: 0 1px;
+      }
    }
    
    &__contact, &__read-more {
@@ -385,7 +441,6 @@ a {
       white-space: nowrap;
       border: 2px solid var(--text-color-80);
       border-radius: 10rem;
-      margin-top: 0.5rem;
       background-color: transparent;
       transition: background-color .48s ease-in-out, color .48s ease-in-out;
 
@@ -393,6 +448,10 @@ a {
          background-color: var(--bg-color-invert);
          color: var(--text-color-invert);
       }
+   }
+
+   &__read-more {
+      margin-top: 0.5rem;
    }
 }
 
@@ -598,55 +657,6 @@ a {
    syntax: "<color>";
    initial-value: white;
    inherits: false;
-}
-
-.btn__CTA {
-   display: flex;
-   gap: 0.5rem;
-   --animation: gradient-angle linear infinite;
-   --duration: 3s;
-   --shadow-size: 2px;
-   isolation: isolate;
-   position: relative;
-   overflow: hidden;
-   cursor: pointer;
-   outline-offset: 4px;
-   padding: 1.25rem 2rem;
-   font-family: inherit;
-   font-size: 1.125rem;
-   line-height: 1.2;
-   border: 1px solid transparent;
-   border-radius: 360px;
-   color: var(--shiny-cta-text);
-   background: linear-gradient(var(--shiny-cta-bg), var(--shiny-cta-bg))
-         padding-box,
-      conic-gradient(
-            from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
-            transparent,
-            var(--shiny-cta-highlight) var(--gradient-percent),
-            var(--gradient-shine) calc(var(--gradient-percent) * 2),
-            var(--shiny-cta-highlight) calc(var(--gradient-percent) * 3),
-            transparent calc(var(--gradient-percent) * 4)
-         )
-         border-box;
-   box-shadow: inset 0 0 0 1px var(--shiny-cta-border-subtle);
-   width: fit-content;
-
-   &::before,
-   &::after,
-   span::before {
-      content: "";
-      pointer-events: none;
-      position: absolute;
-      inset-inline-start: 50%;
-      inset-block-start: 50%;
-      translate: -50% -50%;
-      z-index: -1;
-   }
-
-   &:active {
-      translate: 0 1px;
-   }
 }
 
 /* Dots pattern */
@@ -1162,7 +1172,7 @@ a {
 
    &__mail {
       gap: 0.5rem;
-      font-size: 1.25rem;
+      font-size: 1rem;
 
       &--hi {
          color: var(--text-color-80);

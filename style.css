@@ -210,6 +210,7 @@ a {
 
 .nav {
   order: 2;
+  margin-left: auto;
   /*close icon*/
 }
 .nav__toggler {
@@ -225,7 +226,6 @@ a {
   cursor: pointer;
   z-index: 3;
   outline: none;
-  margin-left: 0.5rem;
 }
 .nav__toggler--line {
   display: block;
@@ -287,8 +287,50 @@ a {
 .btn {
   border: none;
 }
-.btn__contact {
-  margin-left: auto;
+.btn-group {
+  display: flex;
+  gap: 0.5rem;
+}
+.btn__CTA {
+  display: flex;
+  gap: 0.5rem;
+  --animation: gradient-angle linear infinite;
+  --duration: 3s;
+  --shadow-size: 2px;
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  outline-offset: 4px;
+  padding: 1rem 1.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.2;
+  border: 1px solid transparent;
+  border-radius: 360px;
+  color: var(--shiny-cta-text);
+  background: linear-gradient(var(--shiny-cta-bg), var(--shiny-cta-bg)) padding-box, conic-gradient(from calc(var(--gradient-angle) - var(--gradient-angle-offset)), transparent, var(--shiny-cta-highlight) var(--gradient-percent), var(--gradient-shine) calc(var(--gradient-percent) * 2), var(--shiny-cta-highlight) calc(var(--gradient-percent) * 3), transparent calc(var(--gradient-percent) * 4)) border-box;
+  box-shadow: inset 0 0 0 1px var(--shiny-cta-border-subtle);
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.btn__CTA > span {
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+.btn__CTA::before, .btn__CTA::after,
+.btn__CTA span::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+}
+.btn__CTA:active {
+  translate: 0 1px;
 }
 .btn__contact, .btn__read-more {
   cursor: pointer;
@@ -303,13 +345,15 @@ a {
   white-space: nowrap;
   border: 2px solid var(--text-color-80);
   border-radius: 10rem;
-  margin-top: 0.5rem;
   background-color: transparent;
   transition: background-color 0.48s ease-in-out, color 0.48s ease-in-out;
 }
 .btn__contact:hover, .btn__read-more:hover {
   background-color: var(--bg-color-invert);
   color: var(--text-color-invert);
+}
+.btn__read-more {
+  margin-top: 0.5rem;
 }
 
 .area {
@@ -499,43 +543,6 @@ a {
   initial-value: white;
   inherits: false;
 }
-.btn__CTA {
-  display: flex;
-  gap: 0.5rem;
-  --animation: gradient-angle linear infinite;
-  --duration: 3s;
-  --shadow-size: 2px;
-  isolation: isolate;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  outline-offset: 4px;
-  padding: 1.25rem 2rem;
-  font-family: inherit;
-  font-size: 1.125rem;
-  line-height: 1.2;
-  border: 1px solid transparent;
-  border-radius: 360px;
-  color: var(--shiny-cta-text);
-  background: linear-gradient(var(--shiny-cta-bg), var(--shiny-cta-bg)) padding-box, conic-gradient(from calc(var(--gradient-angle) - var(--gradient-angle-offset)), transparent, var(--shiny-cta-highlight) var(--gradient-percent), var(--gradient-shine) calc(var(--gradient-percent) * 2), var(--shiny-cta-highlight) calc(var(--gradient-percent) * 3), transparent calc(var(--gradient-percent) * 4)) border-box;
-  box-shadow: inset 0 0 0 1px var(--shiny-cta-border-subtle);
-  width: -moz-fit-content;
-  width: fit-content;
-}
-.btn__CTA::before, .btn__CTA::after,
-.btn__CTA span::before {
-  content: "";
-  pointer-events: none;
-  position: absolute;
-  inset-inline-start: 50%;
-  inset-block-start: 50%;
-  translate: -50% -50%;
-  z-index: -1;
-}
-.btn__CTA:active {
-  translate: 0 1px;
-}
-
 /* Dots pattern */
 .btn__CTA::before {
   --size: calc(100% - var(--shadow-size) * 0.25);
@@ -953,7 +960,7 @@ a {
 }
 .footer__mail {
   gap: 0.5rem;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 .footer__mail--hi {
   color: var(--text-color-80);
