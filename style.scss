@@ -1,3 +1,17 @@
+/* === LAYERS === */
+@layer base, components, utilities;
+
+/* === BASE STYLES === */
+@layer base {
+   html {
+      scroll-behavior: smooth;
+   }
+
+   section {
+      scroll-margin-top: 5rem;
+   }
+}
+
 *,
 ::before,
 ::after {
@@ -411,7 +425,7 @@ a {
          display: flex;
          align-items: center;
       }
-   
+
       &::before,
       &::after,
       span::before {
@@ -423,13 +437,14 @@ a {
          translate: -50% -50%;
          z-index: -1;
       }
-   
+
       &:active {
          translate: 0 1px;
       }
    }
-   
-   &__contact, &__read-more {
+
+   &__contact,
+   &__read-more {
       cursor: pointer;
       display: flex;
       gap: 0.5rem;
@@ -442,7 +457,7 @@ a {
       border: 2px solid var(--text-color-80);
       border-radius: 10rem;
       background-color: transparent;
-      transition: background-color .48s ease-in-out, color .48s ease-in-out;
+      transition: background-color 0.48s ease-in-out, color 0.48s ease-in-out;
 
       &:hover {
          background-color: var(--bg-color-invert);
@@ -799,7 +814,7 @@ a {
       gap: 1.5rem;
    }
 
-   &__title {
+   &__label {
       font-size: 0.875rem;
       font-weight: 500;
       color: var(--text-color-80);
@@ -821,10 +836,20 @@ a {
       transform: translateY(-50%);
       z-index: -1;
    }
+
+   &__title {
+      font-size: 2.5rem;
+      line-height: 4rem;
+   }
+
+   &__description {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      color: var(--text-color-80);
+   }
 }
 
 .divider {
-
    &__circle {
       display: inline-block;
       width: 0.25rem;
@@ -890,7 +915,7 @@ a {
       > span {
          display: none;
       }
-      
+
       &--title {
          color: var(--text-color-90);
       }
@@ -948,7 +973,6 @@ a {
 }
 
 .work {
-
    &__list {
       display: grid;
       gap: 2rem;
@@ -978,7 +1002,7 @@ a {
          background: linear-gradient(90deg, #dfe9f3 0%, #f6d5d5 100%);
       }
       &--five {
-         background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+         background-image: linear-gradient(-225deg, #e3fdf5 0%, #ffe6fa 100%);
       }
       &--six {
          background: linear-gradient(90deg, #fdfcfb 0%, #e2d1c3 100%);
@@ -995,7 +1019,12 @@ a {
          background: linear-gradient(90deg, #ffecd2 0%, #fcb69f 100%);
       }
       &--nine {
-         background-image: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
+         background-image: linear-gradient(
+            to top,
+            #dad4ec 0%,
+            #dad4ec 1%,
+            #f3e7e9 100%
+         );
       }
    }
 
@@ -1053,7 +1082,7 @@ a {
 
 .project {
    &-detail,
-   &-background {
+   &-background,&-problem, &-design-process, &-impact, &-reflection {
       &__content {
          display: grid;
          gap: 1.5rem;
@@ -1115,16 +1144,15 @@ a {
          padding: 1.5rem 1rem;
       }
    }
-   
-   &-background {
 
+   &-background {
       &__cards {
          display: flex;
          gap: 1rem;
          overflow-x: scroll;
          scrollbar-width: none;
       }
-      
+
       &__card {
          position: relative;
          min-width: 90%;
@@ -1139,6 +1167,9 @@ a {
             width: 100%;
             height: 100%;
             display: block;
+            object-position: bottom right;
+            padding-top: 2rem;
+            padding-right: 2rem;
          }
       }
 
@@ -1148,8 +1179,8 @@ a {
          font-weight: 700;
          color: var(--overlay-color-20);
          position: absolute;
-         bottom: 1.5rem;
-         left: 1.5rem;
+         bottom: 0.5rem;
+         left: 0.5rem;
       }
 
       &__description {
@@ -1218,19 +1249,17 @@ a {
    }
 
    .section {
-
       &__content {
          padding: 3rem 1.5rem;
          gap: 2rem;
       }
 
-      &__title {
+      &__label {
          margin-left: 1.5rem;
       }
    }
 
    .experience {
-   
       &__item {
          grid-template-columns: 1fr 1fr;
          gap: 3rem;
@@ -1248,7 +1277,6 @@ a {
    }
 
    .work {
-
       &__item-anchor {
          flex-direction: unset;
          height: 24rem;
@@ -1281,11 +1309,6 @@ a {
             gap: 3rem;
          }
 
-         &__title {
-            font-size: 2.5rem;
-            line-height: 4rem;
-         }
-
          &__card {
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
@@ -1299,7 +1322,6 @@ a {
       }
 
       &-background {
-
          &__cards {
             gap: 1.5rem;
          }

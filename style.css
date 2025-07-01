@@ -1,3 +1,14 @@
+/* === LAYERS === */
+@layer base, components, utilities;
+/* === BASE STYLES === */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  section {
+    scroll-margin-top: 5rem;
+  }
+}
 *,
 ::before,
 ::after {
@@ -653,7 +664,7 @@ a {
   display: grid;
   gap: 1.5rem;
 }
-.section__title {
+.section__label {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--text-color-80);
@@ -674,6 +685,15 @@ a {
   top: 50%;
   transform: translateY(-50%);
   z-index: -1;
+}
+.section__title {
+  font-size: 2.5rem;
+  line-height: 4rem;
+}
+.section__description {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: var(--text-color-80);
 }
 
 .divider__circle {
@@ -807,7 +827,7 @@ a {
   background: linear-gradient(90deg, #dfe9f3 0%, #f6d5d5 100%);
 }
 .work__item--five {
-  background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+  background-image: linear-gradient(-225deg, #e3fdf5 0%, #ffe6fa 100%);
 }
 .work__item--six {
   background: linear-gradient(90deg, #fdfcfb 0%, #e2d1c3 100%);
@@ -865,47 +885,47 @@ a {
   max-height: 24rem;
 }
 
-.project-detail__content, .project-background__content {
+.project-detail__content, .project-background__content, .project-problem__content, .project-design-process__content, .project-impact__content, .project-reflection__content {
   display: grid;
   gap: 1.5rem;
   padding: 1.5rem 1rem;
 }
-.project-detail__text, .project-background__text {
+.project-detail__text, .project-background__text, .project-problem__text, .project-design-process__text, .project-impact__text, .project-reflection__text {
   display: grid;
   gap: 0.5rem;
 }
-.project-detail__title, .project-background__title {
+.project-detail__title, .project-background__title, .project-problem__title, .project-design-process__title, .project-impact__title, .project-reflection__title {
   font-size: 2rem;
   line-height: 2.5rem;
   font-weight: 600;
   color: var(--text-color-100);
 }
-.project-detail__subtext, .project-background__subtext {
+.project-detail__subtext, .project-background__subtext, .project-problem__subtext, .project-design-process__subtext, .project-impact__subtext, .project-reflection__subtext {
   color: var(--text-color-80);
   font-size: 1rem;
   line-height: 1.5rem;
 }
-.project-detail__card, .project-background__card {
+.project-detail__card, .project-background__card, .project-problem__card, .project-design-process__card, .project-impact__card, .project-reflection__card {
   display: grid;
   gap: 1.5rem;
   background-color: var(--bg-color-90);
   border-radius: 0.5rem;
 }
-.project-detail__item, .project-background__item {
+.project-detail__item, .project-background__item, .project-problem__item, .project-design-process__item, .project-impact__item, .project-reflection__item {
   list-style: none;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-.project-detail__item:nth-child(n+2), .project-background__item:nth-child(n+2) {
+.project-detail__item:nth-child(n+2), .project-background__item:nth-child(n+2), .project-problem__item:nth-child(n+2), .project-design-process__item:nth-child(n+2), .project-impact__item:nth-child(n+2), .project-reflection__item:nth-child(n+2) {
   border-top: 1px solid var(--border-color-10);
 }
-.project-detail__item:last-child, .project-background__item:last-child {
+.project-detail__item:last-child, .project-background__item:last-child, .project-problem__item:last-child, .project-design-process__item:last-child, .project-impact__item:last-child, .project-reflection__item:last-child {
   padding-bottom: unset;
 }
-.project-detail__item > label, .project-background__item > label {
+.project-detail__item > label, .project-background__item > label, .project-problem__item > label, .project-design-process__item > label, .project-impact__item > label, .project-reflection__item > label {
   color: var(--text-color-80);
 }
-.project-detail__item > p, .project-background__item > p {
+.project-detail__item > p, .project-background__item > p, .project-problem__item > p, .project-design-process__item > p, .project-impact__item > p, .project-reflection__item > p {
   color: var(--text-color-90);
   font-weight: 500;
   margin-top: 0.25rem;
@@ -934,6 +954,10 @@ a {
   width: 100%;
   height: 100%;
   display: block;
+  -o-object-position: bottom right;
+     object-position: bottom right;
+  padding-top: 2rem;
+  padding-right: 2rem;
 }
 .project-background__number {
   font-size: 9rem;
@@ -941,8 +965,8 @@ a {
   font-weight: 700;
   color: var(--overlay-color-20);
   position: absolute;
-  bottom: 1.5rem;
-  left: 1.5rem;
+  bottom: 0.5rem;
+  left: 0.5rem;
 }
 .project-background__description {
   font-size: 1.25rem;
@@ -998,7 +1022,7 @@ a {
     padding: 3rem 1.5rem;
     gap: 2rem;
   }
-  .section__title {
+  .section__label {
     margin-left: 1.5rem;
   }
   .experience__item {
@@ -1035,10 +1059,6 @@ a {
   .project-detail__text, .project-background__text {
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-  }
-  .project-detail__title, .project-background__title {
-    font-size: 2.5rem;
-    line-height: 4rem;
   }
   .project-detail__card, .project-background__card {
     grid-template-columns: 1fr 1fr;
