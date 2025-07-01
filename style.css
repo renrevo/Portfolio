@@ -895,8 +895,8 @@ a {
   gap: 0.5rem;
 }
 .project-detail__title, .project-background__title, .project-problem__title, .project-design-process__title, .project-impact__title, .project-reflection__title {
-  font-size: 2rem;
-  line-height: 2.5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
   font-weight: 600;
   color: var(--text-color-100);
 }
@@ -1056,16 +1056,22 @@ a {
   .project-detail__content, .project-background__content {
     padding: 3rem 1.5rem;
   }
-  .project-detail__text, .project-background__text {
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-  }
   .project-detail__card, .project-background__card {
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
   }
   .project-detail__card {
     padding: 2rem;
+  }
+  .project-detail__text {
+    display: grid;
+    gap: 1rem;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .project-background__text {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
   }
   .project-background__cards {
     gap: 1.5rem;
