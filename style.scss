@@ -1425,3 +1425,419 @@ a {
       }
    }
 }
+
+/* === ABOUT PAGE STYLES === */
+.project-background {
+   &__text {
+      display: grid;
+      gap: 1rem;
+      padding: 2rem 1rem;
+   }
+
+   &__title {
+      font-size: 2.5rem;
+      line-height: 3rem;
+      font-weight: 700;
+      color: var(--text-color-100);
+   }
+
+   &__subtext {
+      font-size: 1.5rem;
+      line-height: 2rem;
+      color: var(--text-color-80);
+
+      > p {
+         margin-bottom: 1rem;
+
+         &:last-child {
+            margin-bottom: 0;
+         }
+      }
+   }
+}
+
+.hero-work {
+   padding: 2rem 0;
+}
+
+.story-section,
+.experience-section,
+.skills-section,
+.philosophy-section,
+.interests-section {
+   padding: 3rem 0;
+
+   .container {
+      padding: 0 1rem;
+   }
+}
+
+.story-content {
+   display: grid;
+   gap: 1.5rem;
+
+   &__description {
+      display: grid;
+      gap: 1rem;
+
+      > p {
+         font-size: 1.5rem;
+         line-height: 2rem;
+         color: var(--text-color-80);
+      }
+   }
+}
+
+.section-title {
+   font-size: 2rem;
+   line-height: 2.5rem;
+   font-weight: 600;
+   color: var(--text-color-100);
+   margin-bottom: 1.5rem;
+}
+
+.experience-grid {
+   display: grid;
+   gap: 2rem;
+}
+
+.experience-card {
+   background-color: var(--bg-color-90);
+   padding: 2rem;
+   border-radius: 0.75rem;
+   display: grid;
+   gap: 1rem;
+   border: 1px solid var(--border-color-10);
+
+   &__company--img {
+      width: 3rem;
+      height: 3rem;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+   }
+
+   &__header {
+      display: grid;
+      gap: 0.25rem;
+
+      > h4 {
+         font-size: 1.5rem;
+         font-weight: 600;
+         color: var(--text-color-100);
+         margin: 0;
+      }
+   }
+
+   &__role {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-color-80);
+   }
+
+   &__description {
+      font-size: 0.95rem;
+      line-height: 1.5rem;
+      color: var(--text-color-80);
+      margin: 0;
+   }
+
+   &__highlights {
+      list-style: none;
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+      margin: 0;
+      padding: 0;
+
+      > li {
+         font-size: 0.95rem;
+         line-height: 1.5rem;
+         color: var(--text-color-90);
+         padding-left: 1.5rem;
+         position: relative;
+
+         &::before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: var(--text-color-70);
+         }
+      }
+   }
+}
+
+.skills-grid {
+   display: grid;
+   gap: 1.5rem;
+}
+
+.skill-item {
+   display: grid;
+   gap: 0.75rem;
+   padding: 1.5rem;
+   background-color: var(--bg-color-90);
+   border-radius: 0.75rem;
+   border: 1px solid var(--border-color-10);
+   text-align: center;
+   place-items: center;
+
+   > h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-color-100);
+      margin: 0;
+   }
+
+   > p {
+      font-size: 0.95rem;
+      line-height: 1.5rem;
+      color: var(--text-color-80);
+      margin: 0;
+   }
+}
+
+.skill-item__image-wrapper {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+
+   > img {
+      max-width: 2.5rem;
+      height: auto;
+      display: block;
+   }
+}
+
+.philosophy-content {
+   display: grid;
+   gap: 1.5rem;
+}
+
+.philosophy-card {
+   background-color: var(--bg-color-90);
+   padding: 2rem;
+   border-radius: 0.75rem;
+   border: 1px solid var(--border-color-10);
+   display: grid;
+   gap: 0.75rem;
+
+   > h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-color-100);
+      margin: 0;
+   }
+
+   > p {
+      font-size: 0.95rem;
+      line-height: 1.5rem;
+      color: var(--text-color-80);
+      margin: 0;
+   }
+}
+
+.interests-grid {
+   display: grid;
+   gap: 1.5rem;
+   margin-top: 2rem;
+}
+
+.interest-item {
+   display: grid;
+   gap: 0.75rem;
+   padding: 1.5rem;
+   background-color: var(--bg-color-90);
+   border-radius: 0.75rem;
+   border: 1px solid var(--border-color-10);
+   text-align: center;
+   place-items: center;
+
+   > i {
+      font-size: 2.5rem;
+      color: var(--text-color-100);
+   }
+
+   > h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-color-100);
+      margin: 0;
+   }
+
+   > p {
+      font-size: 0.95rem;
+      line-height: 1.5rem;
+      color: var(--text-color-80);
+      margin: 0;
+   }
+}
+
+.section-subtitle {
+   font-size: 1.1rem;
+   line-height: 1.75rem;
+   color: var(--text-color-80);
+   text-align: center;
+}
+
+.cta-section {
+   padding: 3rem 0;
+
+   .container {
+      padding: 0 1rem;
+   }
+}
+
+.cta-content {
+   background: linear-gradient(135deg, var(--bg-color-90), var(--bg-color-100));
+   padding: 3rem 1.5rem;
+   border-radius: 1rem;
+   border: 1px solid var(--border-color-10);
+   text-align: center;
+   display: grid;
+   gap: 1.5rem;
+
+   > h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text-color-100);
+      margin: 0;
+   }
+
+   > p {
+      font-size: 1rem;
+      line-height: 1.75rem;
+      color: var(--text-color-80);
+      margin: 0;
+   }
+}
+
+.cta-button {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   padding: 1rem 2rem;
+   background-color: var(--text-color-100);
+   color: var(--bg-color-100);
+   font-weight: 600;
+   border-radius: 0.5rem;
+   transition: all 0.24s ease-in-out;
+   width: fit-content;
+   margin: 0 auto;
+
+   &:hover {
+      background-color: var(--text-color-80);
+      transform: translateY(-2px);
+   }
+}
+
+/* Tablet and larger screens */
+@media (min-width: 48rem) {
+   .project-background {
+      &__text {
+         padding: 3rem 1.5rem;
+      }
+
+      &__title {
+         font-size: 3rem;
+         line-height: 3.5rem;
+      }
+
+      &__subtext {
+         font-size: 1.15rem;
+         line-height: 1.85rem;
+      }
+   }
+
+   .section-title {
+      font-size: 2.5rem;
+      line-height: 3rem;
+      margin-bottom: 2rem;
+   }
+
+   .story-section,
+   .experience-section,
+   .skills-section,
+   .philosophy-section,
+   .interests-section {
+      padding: 4rem 0;
+
+      .container {
+         padding: 0 1.5rem;
+      }
+   }
+
+   .experience-grid,
+   .philosophy-content {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+   }
+
+   .skills-grid,
+   .interests-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+   }
+
+   .experience-card {
+      padding: 1.5rem;
+   }
+
+   .cta-content {
+      padding: 4rem 2rem;
+
+      > h3 {
+         font-size: 2.5rem;
+      }
+
+      > p {
+         font-size: 1.1rem;
+         max-width: 600px;
+         margin: 0 auto;
+      }
+   }
+}
+
+@media (min-width: 64rem) {
+   .project-background {
+      &__title {
+         font-size: 3.5rem;
+         line-height: 4rem;
+      }
+   }
+
+   .section-title {
+      font-size: 3rem;
+      line-height: 3.5rem;
+   }
+
+   .experience-grid,
+   .philosophy-content {
+      grid-template-columns: repeat(3, 1fr);
+   }
+
+   .skills-grid,
+   .interests-grid {
+      grid-template-columns: repeat(3, 1fr);
+   }
+
+   .story-section,
+   .experience-section,
+   .skills-section,
+   .philosophy-section,
+   .interests-section {
+      padding: 5rem 0;
+
+      .container {
+         padding: 0 1.5rem;
+      }
+   }
+
+   .cta-content {
+      padding: 5rem 3rem;
+
+      > h3 {
+         font-size: 3rem;
+      }
+   }
+}
