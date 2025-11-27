@@ -1713,7 +1713,7 @@ a {
 
 /* Stats Section */
 .about-stats {
-  padding: 3rem 1rem;
+  padding: 0 1.5rem 3rem;
 }
 
 .stats-grid {
@@ -2222,10 +2222,6 @@ a {
 @media (min-width: 768px) {
   .about-hero {
     padding: 10rem 1.5rem 5rem;
-  }
-
-  .about-hero__title {
-    font-size: clamp(3rem, 6vw, 5rem);
   }
 
   .about-hero__subtitle {
