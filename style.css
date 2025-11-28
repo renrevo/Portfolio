@@ -1876,21 +1876,21 @@ a {
 }
 
 .role {
-  padding-top: 0.75rem;
+  padding-top: 0.875rem;
   border-top: 1px solid var(--border-color-20);
   transition: border-color 0.3s ease;
   text-align: center;
 }
 
 .role__title {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-color-90);
   margin: 0 0 0.25rem 0;
 }
 
 .role__period {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--text-color-70);
   margin: 0;
 }
@@ -1912,7 +1912,7 @@ a {
 }
 
 .experience-card__highlights li {
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   color: var(--text-color-80);
   padding-left: 1.25rem;
