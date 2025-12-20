@@ -12,3 +12,141 @@ toggler.addEventListener(
   },
   true
 );
+
+// Header scroll effect
+const header = document.querySelector('.header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 20) {
+    header.classList.add('header--scrolled');
+  } else {
+    header.classList.remove('header--scrolled');
+  }
+});
+
+// Random Hero Grid Fills
+function initHeroFills() {
+  const containers = document.querySelectorAll('.hero__grid-fills');
+  if (containers.length === 0) return;
+
+  const gridSize = 48;
+  const squareCount = 21;
+
+  containers.forEach(container => {
+    const hero = container.closest('section');
+    if (!hero) return;
+
+    let intervalId;
+
+    function updateFills() {
+      container.innerHTML = '';
+      const width = hero.offsetWidth;
+      const height = hero.offsetHeight;
+      const cols = Math.floor(width / gridSize);
+      const rows = Math.floor(height / gridSize);
+
+      const positions = new Set();
+      const totalCells = cols * rows;
+      const count = Math.min(squareCount, totalCells);
+
+      let attempts = 0;
+      while (positions.size < count && attempts < 1000) {
+        attempts++;
+        const col = Math.floor(Math.random() * cols);
+        const row = Math.floor(Math.random() * rows);
+        const pos = `${col},${row}`;
+
+        if (positions.has(pos)) continue;
+
+        // No two adjacent squares can be filled
+        const neighbors = [
+          `${col - 1},${row}`, `${col + 1},${row}`,
+          `${col},${row - 1}`, `${col},${row + 1}`
+        ];
+
+        if (neighbors.some(n => positions.has(n))) continue;
+
+        positions.add(pos);
+      }
+
+      positions.forEach(pos => {
+        const [col, row] = pos.split(',').map(Number);
+        const square = document.createElement('div');
+        square.className = 'hero__grid-square';
+        square.style.left = `${col * gridSize}px`;
+        square.style.top = `${row * gridSize}px`;
+        container.appendChild(square);
+
+        // Animate in slightly delayed for each
+        setTimeout(() => {
+          square.classList.add('hero__grid-square--active');
+        }, Math.random() * 500);
+      });
+    }
+
+    function startRotation() {
+      if (intervalId) clearInterval(intervalId);
+      updateFills();
+      intervalId = setInterval(updateFills, 7000);
+    }
+
+    startRotation();
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(startRotation, 200);
+    });
+  });
+}
+
+// Grid Beaming Animation
+function initHeroBeams() {
+  const containers = document.querySelectorAll('.hero__grid-beams');
+  if (containers.length === 0) return;
+
+  const gridSize = 48;
+
+  containers.forEach(container => {
+    const hero = container.closest('section');
+    if (!hero) return;
+
+    function createBeam() {
+      const isHorizontal = Math.random() > 0.5;
+      const beam = document.createElement('div');
+      beam.className = `grid-beam ${isHorizontal ? 'grid-beam--horizontal' : 'grid-beam--vertical'}`;
+
+      const width = hero.offsetWidth;
+      const height = hero.offsetHeight;
+
+      if (isHorizontal) {
+        const row = Math.floor(Math.random() * (height / gridSize));
+        beam.style.top = `${row * gridSize}px`;
+        beam.style.left = '0';
+      } else {
+        const col = Math.floor(Math.random() * (width / gridSize));
+        beam.style.left = `${col * gridSize}px`;
+        beam.style.top = '0';
+      }
+
+      container.appendChild(beam);
+
+      // Remove beam after animation finishes
+      beam.addEventListener('animationend', () => {
+        beam.remove();
+      });
+    }
+
+    // Randomly spawn beams
+    function spawn() {
+      createBeam();
+      setTimeout(spawn, Math.random() * 2000 + 1000); // Between 1 and 3 seconds
+    }
+
+    spawn();
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initHeroFills();
+  initHeroBeams();
+});
