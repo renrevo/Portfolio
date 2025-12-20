@@ -58,9 +58,9 @@ a {
   --bg-color-100-light: var(--grey-0);
   --bg-color-90-light: var(--grey-10);
   --bg-color-invert-light: var(--grey-100);
-  --text-color-100-light: var(--grey-100);
-  --text-color-90-light: var(--grey-80);
-  --text-color-80-light: var(--grey-70);
+  --text-color-100-light: var(--grey-90);
+  --text-color-90-light: var(--grey-70);
+  --text-color-80-light: var(--grey-60);
   --text-color-70-light: var(--grey-50);
   --text-color-invert-light: var(--grey-0);
   --overlay-color-10-light: var(--overlay-black-10);
@@ -75,9 +75,9 @@ a {
   --bg-color-100-dark: var(--grey-90);
   --bg-color-90-dark: var(--grey-80);
   --bg-color-invert-dark: var(--grey-0);
-  --text-color-100-dark: var(--grey-0);
-  --text-color-90-dark: var(--grey-20);
-  --text-color-80-dark: var(--grey-30);
+  --text-color-100-dark: var(--grey-10);
+  --text-color-90-dark: var(--grey-30);
+  --text-color-80-dark: var(--grey-40);
   --text-color-70-dark: var(--grey-50);
   --text-color-invert-dark: var(--grey-100);
   --overlay-color-10-dark: var(--overlay-white-10);
@@ -720,53 +720,57 @@ a {
   color: var(--text-color-70);
 }
 
-.parallax {
-  align-content: center;
-  align-items: center;
-  background-color: var(--bg-color-90);
+.work__header {
   display: flex;
-  flex: none;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  gap: 10px;
-  height: 60vh;
-  justify-content: center;
-  max-width: 100%;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 0.25rem solid var(--bg-color-90);
   overflow: hidden;
-  padding: 0;
+}
+
+.work__tabs {
+  display: flex;
+  align-items: flex-end;
+}
+
+.work__tab {
+  padding: 0.75rem 2.5rem 0.75rem 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-color-80);
+  clip-path: polygon(0 0, calc(100% - 1.5rem) 0, 100% 100%, 0 100%);
+  margin-right: -1rem;
+  transition: all 0.3s ease;
   position: relative;
-  width: 100%;
+  font-family: var(--font-mono, monospace);
+  line-height: 1;
+  border-top-left-radius: 0.5rem;
 }
 
-.parallax__wrapper {
-  will-change: transform;
-  opacity: 1;
-  transform: none;
-  flex: none;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  right: 0;
+.work__see-all {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 0.75rem 2.5rem 0.75rem 2.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  clip-path: polygon(1.5rem 0, 100% 0, 100% 100%, 0 100%);
+  margin-right: -0.5rem;
+  transition: background-color 0.3s ease;
+  font-family: var(--font-mono, monospace);
+  line-height: 1;
+  margin-left: auto;
 }
 
-.parallax__img {
-  position: absolute;
-  border-radius: inherit;
-  inset: 0;
-  perspective: 1px;
-  transform-style: preserve-3d;
+.work__see-all:hover {
+  background-color: #333333;
 }
 
-.parallax__img>img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  -o-object-position: center;
-  object-position: center;
-  -o-object-fit: cover;
-  object-fit: cover;
-  transform: translateZ(-1px) scale(2);
+.work__see-all span {
+  display: inline-block;
+  transform: translateY(1px);
 }
 
 .work__list {
@@ -777,33 +781,34 @@ a {
 .work__item {
   list-style: none;
   width: 100%;
-  border: 1px solid var(--border-color-10);
-  border-radius: 2rem;
   overflow: hidden;
-  background-color: var(--bg-color-100);
-  margin-bottom: 0;
 }
 
+.work__tab--one,
 .work__item--one .work__img-wrapper,
 .work__item--one .work__tag {
-  background: linear-gradient(135deg, #f1fbe9 0%, #defdd1 100%);
-}
-
-.work__item--two .work__img-wrapper,
-.work__item--two .work__tag {
   background: linear-gradient(135deg, #eef7ff 0%, #d1e8f9 100%);
 }
 
+.work__tab--two,
+.work__item--two .work__img-wrapper,
+.work__item--two .work__tag {
+  background: linear-gradient(135deg, #f1fbe9 0%, #defdd1 100%);
+}
+
+.work__tab--three,
 .work__item--three .work__img-wrapper,
 .work__item--three .work__tag {
   background: linear-gradient(135deg, #fff5f2 0%, #ffe4de 100%);
 }
 
+.work__tab--four,
 .work__item--four .work__img-wrapper,
 .work__item--four .work__tag {
   background: linear-gradient(135deg, #fff9e6 0%, #fceec5 100%);
 }
 
+.work__tab--five,
 .work__item--five .work__img-wrapper,
 .work__item--five .work__tag {
   background: linear-gradient(135deg, #f8f3ff 0%, #ece0ff 100%);
@@ -812,26 +817,90 @@ a {
 .work__item-anchor {
   display: flex;
   flex-direction: column;
+  background-color: var(--bg-color-100);
+  border: 1px solid var(--border-color-10);
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s ease;
 }
 
 .work__item-text {
-  padding: 2rem;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
   order: 1;
 }
 
+.work__item-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.work__item-company {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: var(--text-color-70);
+}
+
 .work__item-title {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: var(--text-color-100);
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.work__item-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-color-70);
+  margin-bottom: -0.5rem;
+}
+
+.work__item-separator {
+  color: var(--text-color-70);
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+
+.work__item-platform {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.work__item-platform:hover {
+  transform: translateY(-2px);
+  color: var(--text-color-100);
+}
+
+.work__item-platform img {
+  background-color: var(--bg-color-90);
+  width: 2rem;
+  height: 2rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work__item-platform:hover img {
+  background-color: var(--bg-color-100);
+  box-shadow: 0 4px 12px var(--overlay-color-10);
 }
 
 .work__item-subtext {
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: var(--text-color-70);
+  color: var(--text-color-80);
 }
 
 .work__tags {
@@ -841,11 +910,18 @@ a {
 }
 
 .work__tag {
-  font-size: 0.875rem;
-  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+  padding: 0.4rem 0.875rem;
   border-radius: 2rem;
   color: var(--text-color-80);
   font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.work__tag:hover {
+  border-color: var(--border-color-30);
+  transform: scale(1.05);
 }
 
 .work__img-wrapper {
