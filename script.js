@@ -146,7 +146,35 @@ function initHeroBeams() {
   });
 }
 
+
+// Mouse Parallax for CTA Cards
+function initCTAParallax() {
+  const cardBox = document.querySelector('.cta-box');
+  const cards = document.querySelectorAll('.cta-card');
+  if (!cardBox || cards.length === 0) return;
+
+  cardBox.addEventListener('mousemove', (e) => {
+    const { clientX, clientY } = e;
+    const { left, top, width, height } = cardBox.getBoundingClientRect();
+
+    const x = (clientX - left) / width - 0.5;
+    const y = (clientY - top) / height - 0.5;
+
+    cards.forEach((card, index) => {
+      const factor = (index + 1) * 20;
+      card.style.transform = `translate(${x * factor}px, ${y * factor}px) rotate(var(--rot))`;
+    });
+  });
+
+  cardBox.addEventListener('mouseleave', () => {
+    cards.forEach(card => {
+      card.style.transform = `translate(0, 0) rotate(var(--rot))`;
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initHeroFills();
   initHeroBeams();
+  initCTAParallax();
 });
