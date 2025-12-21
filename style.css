@@ -775,6 +775,11 @@ a {
   padding: var(--section-padding-y) var(--page-padding);
 }
 
+.section__content {
+  display: grid;
+  gap: var(--space-8);
+}
+
 .section-header {
   display: flex;
   flex-direction: column;
@@ -1394,11 +1399,6 @@ a {
   .work-hero__subtext {
     font-size: var(--fs-md);
     line-height: 1.5;
-  }
-
-  .section__content {
-    display: grid;
-    gap: var(--space-8);
   }
 
   .section-badge {
