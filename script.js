@@ -1,5 +1,5 @@
-const toggler = document.querySelector('.nav > .nav__toggler'),
-  navListContainer = document.querySelector('.nav > .nav__wrapper');
+const toggler = document.querySelector('.nav__toggler'),
+  nav = document.querySelector('.nav');
 
 /*when toggler button is clicked*/
 toggler.addEventListener(
@@ -8,7 +8,7 @@ toggler.addEventListener(
     //convert hamburger to close
     toggler.classList.toggle('nav__cross');
     //make nav visible
-    navListContainer.classList.toggle('nav__active');
+    nav.classList.toggle('nav--active');
   },
   true
 );
