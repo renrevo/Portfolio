@@ -133,6 +133,127 @@ class ParticleNetwork {
 
     this.lines = new THREE.LineSegments(this.lineGeometry, this.lineMaterial);
     this.scene.add(this.lines);
+
+    // Initialize beam lines for the beaming effect (brighter lines that pulse)
+    this.beamLines = [];
+    this.maxBeamLines = this.isMobile ? 3 : 6;
+    this.beamSpawnRate = 0.015; // Probability of spawning a new beam each frame
+
+    // Bright beam material
+    this.beamLineMaterial = new THREE.LineBasicMaterial({
+      color: 0x888888,
+      transparent: true,
+      opacity: 0.6,
+      linewidth: 2
+    });
+  }
+
+  spawnBeamLine() {
+    if (this.beamLines.length >= this.maxBeamLines) return;
+
+    // Find a valid connection to beam
+    const positions = this.pointCloud.geometry.attributes.position.array;
+    const validConnections = [];
+
+    for (let i = 0; i < this.particleCount; i++) {
+      for (let j = i + 1; j < this.particleCount; j++) {
+        const dx = positions[i * 3] - positions[j * 3];
+        const dy = positions[i * 3 + 1] - positions[j * 3 + 1];
+        const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
+        const distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
+
+        if (distance < this.connectionDistance) {
+          validConnections.push({ i, j });
+        }
+      }
+    }
+
+    if (validConnections.length === 0) return;
+
+    // Pick a random connection
+    const connection = validConnections[Math.floor(Math.random() * validConnections.length)];
+
+    // Create beam line geometry
+    const beamGeometry = new THREE.BufferGeometry();
+    const beamPositions = new Float32Array(6);
+    beamGeometry.setAttribute('position', new THREE.BufferAttribute(beamPositions, 3));
+
+    // Create beam line with individual material for independent opacity control
+    const beamMaterial = this.beamLineMaterial.clone();
+    beamMaterial.opacity = 0;
+    const beamLine = new THREE.LineSegments(beamGeometry, beamMaterial);
+    this.scene.add(beamLine);
+
+    // Store beam data
+    this.beamLines.push({
+      line: beamLine,
+      geometry: beamGeometry,
+      material: beamMaterial,
+      startParticle: connection.i,
+      endParticle: connection.j,
+      life: 0,
+      maxLife: 60 + Math.random() * 60, // Random duration (frames)
+      phase: 0 // Animation phase
+    });
+  }
+
+  updateBeamLines() {
+    const positions = this.pointCloud.geometry.attributes.position.array;
+
+    // Maybe spawn a new beam line
+    if (Math.random() < this.beamSpawnRate) {
+      this.spawnBeamLine();
+    }
+
+    // Update existing beam lines
+    for (let i = this.beamLines.length - 1; i >= 0; i--) {
+      const beam = this.beamLines[i];
+      beam.life++;
+
+      // Get current particle positions
+      const startX = positions[beam.startParticle * 3];
+      const startY = positions[beam.startParticle * 3 + 1];
+      const startZ = positions[beam.startParticle * 3 + 2];
+      const endX = positions[beam.endParticle * 3];
+      const endY = positions[beam.endParticle * 3 + 1];
+      const endZ = positions[beam.endParticle * 3 + 2];
+
+      // Update beam line positions
+      const beamPositions = beam.geometry.attributes.position.array;
+      beamPositions[0] = startX;
+      beamPositions[1] = startY;
+      beamPositions[2] = startZ;
+      beamPositions[3] = endX;
+      beamPositions[4] = endY;
+      beamPositions[5] = endZ;
+      beam.geometry.attributes.position.needsUpdate = true;
+
+      // Pulse animation - fade in, glow, fade out
+      const progress = beam.life / beam.maxLife;
+      let opacity;
+
+      if (progress < 0.2) {
+        // Fade in
+        opacity = (progress / 0.2) * 0.7;
+      } else if (progress < 0.8) {
+        // Pulsing glow
+        const pulsePhase = (progress - 0.2) / 0.6;
+        opacity = 0.5 + Math.sin(pulsePhase * Math.PI * 4) * 0.2;
+      } else {
+        // Fade out
+        opacity = ((1 - progress) / 0.2) * 0.7;
+      }
+
+      beam.material.opacity = opacity;
+
+      // Remove beam when done
+      if (beam.life >= beam.maxLife) {
+        this.scene.remove(beam.line);
+        beam.geometry.dispose();
+        beam.material.dispose();
+        this.beamLines.splice(i, 1);
+      }
+    }
   }
 
   updateConnections() {
@@ -254,6 +375,9 @@ class ParticleNetwork {
       this.updateConnections();
     }
 
+    // Update beaming effect on connection lines
+    this.updateBeamLines();
+
     // Subtle camera sway
     this.camera.position.x = Math.sin(Date.now() * 0.0001) * 10;
     this.camera.position.y = Math.cos(Date.now() * 0.00015) * 5;
@@ -269,8 +393,20 @@ class ParticleNetwork {
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-  const heroCanvas = document.getElementById('pe-hero-canvas');
-  if (heroCanvas) {
-    new ParticleNetwork(heroCanvas);
+  // Look for any project hero canvas
+  const canvasIds = [
+    'pe-hero-canvas',
+    'compliance-hero-canvas',
+    'captable-hero-canvas',
+    'esign-hero-canvas',
+    'custom-dashboard-hero-canvas'
+  ];
+
+  for (const id of canvasIds) {
+    const heroCanvas = document.getElementById(id);
+    if (heroCanvas) {
+      new ParticleNetwork(heroCanvas);
+      break; // Only initialize once per page
+    }
   }
 });
