@@ -2627,6 +2627,13 @@ a {
   z-index: 10;
 }
 
+/* Hide scroll indicator on mobile */
+@media (max-width: 767px) {
+  .pe-hero__scroll {
+    display: none;
+  }
+}
+
 .pe-hero__scroll span {
   font-size: 0.65rem;
   font-weight: 600;

@@ -9,10 +9,14 @@ class ParticleNetwork {
     this.container = container;
     this.width = container.offsetWidth;
     this.height = container.offsetHeight;
-    this.particleCount = 120;
+    this.isMobile = window.innerWidth < 768;
+
+    // Reduce particles and connections on mobile for cleaner look
+    this.particleCount = this.isMobile ? 40 : 120;
+    this.connectionDistance = this.isMobile ? 80 : 150;
+
     this.particles = [];
     this.mouse = { x: 0, y: 0, active: false };
-    this.connectionDistance = 150;
     this.mouseInfluence = 100;
 
     // Color palette - neutral black/grey tones
