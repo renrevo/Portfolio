@@ -2677,18 +2677,6 @@ a {
   z-index: 10;
 }
 
-/* Hide scroll indicator on mobile */
-@media (max-width: 767px) {
-
-  .pe-hero__scroll,
-  .compliance-hero__scroll,
-  .captable-hero__scroll,
-  .esign-hero__scroll,
-  .custom-dashboard-hero__scroll {
-    display: none;
-  }
-}
-
 .pe-hero__scroll span,
 .compliance-hero__scroll span,
 .captable-hero__scroll span,
@@ -2767,7 +2755,7 @@ a {
 }
 
 /* ============================================
-   Case Study Components — Editorial Swiss
+   Case Study Components: Editorial Swiss
    ============================================ */
 
 /* Base Section */
@@ -3162,7 +3150,7 @@ a {
 /* Responsive: Desktop */
 @media (min-width: 1024px) {
   .cs-meta {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .cs-header {
