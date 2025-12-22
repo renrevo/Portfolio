@@ -1946,6 +1946,139 @@ a {
   max-width: 32ch;
 }
 
+/* === Skills Carousel Section === */
+.skills-carousel-section {
+  width: 100%;
+  overflow: hidden;
+  padding: var(--space-fluid-lg) 0;
+  background: var(--bg-color-100);
+}
+
+.skills-carousel-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+  /* Fade mask on left and right edges */
+  -webkit-mask-image: linear-gradient(to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%);
+  mask-image: linear-gradient(to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%);
+}
+
+.skills-carousel-row {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.skills-carousel-track {
+  display: flex;
+  gap: var(--space-3);
+  flex-shrink: 0;
+  width: max-content;
+}
+
+/* Right to Left Animation (Top Row) */
+.skills-carousel-row--rtl .skills-carousel-track {
+  animation: scroll-rtl 30s linear infinite;
+}
+
+/* Left to Right Animation (Bottom Row) */
+.skills-carousel-row--ltr .skills-carousel-track {
+  animation: scroll-ltr 30s linear infinite;
+}
+
+@keyframes scroll-rtl {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-ltr {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Skill Tag Pill Styling */
+.skill-tag {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border-color-10);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  cursor: default;
+}
+
+.skill-tag__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  opacity: 0.75;
+  /* Apply a soft accent color tint */
+  filter: sepia(20%) saturate(200%) hue-rotate(10deg);
+  transition: all var(--transition-fast);
+}
+
+.skill-tag:hover .skill-tag__icon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.skill-tag span {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text-color-80);
+  transition: color var(--transition-fast);
+}
+
+.skill-tag:hover span {
+  color: var(--text-color-100);
+}
+
+/* Pause animation on hover for better UX */
+.skills-carousel-wrapper:hover .skills-carousel-track {
+  animation-play-state: paused;
+}
+
+/* Light yellow/cream accent for highlighted tags (optional) */
+.skill-tag--accent {
+  background: hsl(50, 100%, 94%);
+  border-color: hsl(50, 80%, 75%);
+}
+
+.skill-tag--accent .skill-tag__icon {
+  filter: sepia(50%) saturate(300%) hue-rotate(10deg) brightness(0.9);
+  opacity: 1;
+}
+
+/* Reduce motion for a11y */
+@media (prefers-reduced-motion: reduce) {
+
+  .skills-carousel-row--rtl .skills-carousel-track,
+  .skills-carousel-row--ltr .skills-carousel-track {
+    animation: none;
+  }
+}
+
 
 /* CTA Section */
 
