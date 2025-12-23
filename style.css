@@ -1401,6 +1401,11 @@ a {
   gap: var(--space-fluid-md);
 }
 
+.footer__social {
+  display: flex;
+  gap: var(--space-fluid-sm);
+}
+
 .footer__mail {
   gap: var(--space-fluid-sm);
   font-size: var(--fs-base);
@@ -1901,6 +1906,13 @@ a {
   transition: all var(--transition-base);
 }
 
+.skill-item__image-wrapper iconify-icon {
+  font-size: 28px;
+  color: #151520;
+  /* Matching the dark appearance of the filter */
+  transition: all var(--transition-base);
+}
+
 /* Individual vibrant colors */
 .skill-item:nth-child(1) .skill-item__image-wrapper {
   background-color: #ffb930;
@@ -2028,18 +2040,26 @@ a {
   cursor: default;
 }
 
-.skill-tag__icon {
+.skill-tag:hover {
+  border-color: var(--border-color-30);
+  background: var(--bg-color-100);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+iconify-icon.skill-tag__icon {
+  font-size: 24px;
   width: 24px;
   height: 24px;
   flex-shrink: 0;
-  opacity: 0.75;
-  /* Apply a soft accent color tint */
-  filter: sepia(20%) saturate(200%) hue-rotate(10deg);
+  opacity: 0.8;
+  color: var(--text-color-80);
   transition: all var(--transition-fast);
 }
 
-.skill-tag:hover .skill-tag__icon {
+.skill-tag:hover iconify-icon.skill-tag__icon {
   opacity: 1;
+  color: var(--text-color-100);
   transform: scale(1.1);
 }
 
@@ -2083,7 +2103,6 @@ a {
 /* CTA Section */
 
 .about-cta {
-  padding: var(--space-fluid-2xl) 0;
   background: transparent;
 }
 
@@ -2150,7 +2169,7 @@ a {
 }
 
 .cta-card--3 {
-  top: 8%;
+  top: -4%;
   right: -4%;
   transform: rotate(15deg);
   animation-delay: 0.7s;
@@ -2212,7 +2231,7 @@ a {
   margin-bottom: var(--space-fluid-xs);
   position: relative;
   z-index: 2;
-  max-width: 15ch;
+  max-width: 24ch;
   margin-left: auto;
   margin-right: auto;
 }
@@ -3307,4 +3326,46 @@ a {
   .cs-cards {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* Iconify Support */
+iconify-icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Platform Icons */
+.work__item-platform iconify-icon {
+  background-color: var(--bg-color-90);
+  width: var(--space-8);
+  height: var(--space-8);
+  font-size: 16px;
+  /* Icon size inside width/height container */
+  padding: var(--space-2);
+  border-radius: var(--radius-xl);
+  transition: background-color var(--transition-base), box-shadow var(--transition-base), color var(--transition-base);
+  color: var(--text-color-80);
+}
+
+.work__item-platform:hover iconify-icon {
+  background-color: var(--bg-color-100);
+  box-shadow: 0 4px 12px var(--overlay-color-10);
+  color: var(--text-color-100);
+}
+
+/* Check generic button icons */
+.btn__primary iconify-icon {
+  font-size: 1.25em;
+}
+
+/* Social Icons */
+.social-link iconify-icon {
+  font-size: 24px;
+  color: var(--text-color-60);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-link:hover iconify-icon {
+  color: var(--text-color-100);
+  transform: translateY(-2px);
 }
