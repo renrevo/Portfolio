@@ -1418,7 +1418,6 @@ a {
 
 .social-link {
   border: none;
-  font-size: 2rem;
   padding: 0.5rem;
   border-radius: 0.25rem;
   color: var(--text-color-90);
@@ -3364,7 +3363,7 @@ iconify-icon {
 
 /* Social Icons */
 .social-link iconify-icon {
-  font-size: 24px;
+  font-size: 3rem;
   color: var(--text-color-60);
   transition: color 0.3s ease, transform 0.3s ease;
 }
