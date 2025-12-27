@@ -876,18 +876,6 @@ a {
   display: inline-block;
 }
 
-.section-title span::after {
-  content: "";
-  position: absolute;
-  bottom: 0.2em;
-  left: 0;
-  width: 100%;
-  height: 0.3em;
-  background: rgba(139, 92, 246, 0.1);
-  z-index: -1;
-  border-radius: 2px;
-}
-
 .section__divider {
   width: 100%;
   height: 2px;
@@ -2606,13 +2594,14 @@ iconify-icon.skill-tag__icon {
 .esign-hero,
 .custom-dashboard-hero {
   position: relative;
-  min-height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin-top: calc(-1 * var(--space-20));
-  padding-top: var(--space-20);
+  padding-top: var(--space-32);
 }
 
 .pe-hero {
@@ -2635,6 +2624,42 @@ iconify-icon.skill-tag__icon {
   background: linear-gradient(135deg, #f8f3ff 0%, #ece0ff 100%);
 }
 
+/* Hero Visual & Parallax */
+.hero-visual {
+  width: 100%;
+  margin-top: 0;
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+  padding-bottom: var(--space-20);
+}
+
+.hero-visual__container {
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+}
+
+.hero-visual__inner {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.1),
+    0 5px 15px rgba(0, 0, 0, 0.05);
+  transform: translateY(var(--parallax-y, 0));
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .hero-visual {
+    margin-top: 0;
+    padding: 0 var(--page-padding);
+  }
+}
+
 
 /* Content Container */
 .pe-hero__container,
@@ -2646,7 +2671,7 @@ iconify-icon.skill-tag__icon {
   z-index: 10;
   display: flex;
   justify-content: center;
-  padding: var(--space-fluid-3xl) var(--page-padding);
+  padding: var(--space-fluid-xl) var(--page-padding);
 }
 
 .pe-hero__content,
@@ -2714,7 +2739,7 @@ iconify-icon.skill-tag__icon {
 .captable-hero__hook,
 .esign-hero__hook,
 .custom-dashboard-hero__hook {
-  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-size: clamp(2.5rem, 6vw, 3rem);
   font-weight: 600;
   color: var(--text-color-100);
   line-height: 1.05;
@@ -2819,7 +2844,7 @@ iconify-icon.skill-tag__icon {
 .esign-hero__scroll,
 .custom-dashboard-hero__scroll {
   position: absolute;
-  bottom: var(--space-8);
+  bottom: var(--space-4);
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -3215,7 +3240,7 @@ iconify-icon.skill-tag__icon {
 /* Stats/Metrics */
 .cs-metrics {
   display: grid;
-  gap: var(--space-6);
+  gap: var(--space-5);
 }
 
 .cs-metric {

@@ -195,9 +195,25 @@ function initViewTransitions() {
   });
 }
 
+// Hero Scroll Parallax
+function initHeroParallax() {
+  const visuals = document.querySelectorAll('.hero-visual__inner');
+  if (visuals.length === 0) return;
+
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    visuals.forEach(visual => {
+      const speed = 0.25;
+      const yPos = -(scrolled * speed);
+      visual.style.setProperty('--parallax-y', `${yPos}px`);
+    });
+  }, { passive: true });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initHeroFills();
   initHeroBeams();
   initCTAParallax();
   initViewTransitions();
+  initHeroParallax();
 });
