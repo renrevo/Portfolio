@@ -1,17 +1,21 @@
-const toggler = document.querySelector('.nav__toggler'),
-  nav = document.querySelector('.nav');
+function toggler() {
+  const togglerBtn = document.querySelector('.nav__toggler'),
+    navMenu = document.querySelector('.nav');
 
-/*when toggler button is clicked*/
-toggler.addEventListener(
-  "click",
-  () => {
-    //convert hamburger to close
-    toggler.classList.toggle('nav__cross');
-    //make nav visible
-    nav.classList.toggle('nav--active');
-  },
-  true
-);
+  if (!togglerBtn || !navMenu) return;
+
+  /*when toggler button is clicked*/
+  togglerBtn.addEventListener(
+    "click",
+    () => {
+      //convert hamburger to close
+      togglerBtn.classList.toggle('nav__cross');
+      //make nav visible
+      navMenu.classList.toggle('nav--active');
+    },
+    true
+  );
+}
 
 // Header scroll effect
 const header = document.querySelector('.header');
@@ -173,8 +177,27 @@ function initCTAParallax() {
   });
 }
 
+// View Transition handling for project items
+function initViewTransitions() {
+  const projectLinks = document.querySelectorAll('.work__item-anchor');
+
+  projectLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      // Find the parent item that should transition
+      const item = link.closest('.work__item');
+      if (item) {
+        // Add the active class to trigger the view-transition-name in CSS
+        item.classList.add('work__item-active');
+      }
+
+      // The browser handles the transition automatically due to @view-transition
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initHeroFills();
   initHeroBeams();
   initCTAParallax();
+  initViewTransitions();
 });

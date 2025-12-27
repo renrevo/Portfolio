@@ -4,6 +4,10 @@
 
 /* === BASE STYLES === */
 @layer base {
+  @view-transition {
+    navigation: auto;
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -2105,14 +2109,15 @@ iconify-icon.skill-tag__icon {
 }
 
 .cta-box {
-  background: #a397f8;
+  background: radial-gradient(circle at top right, hsla(var(--primary-hue), 80%, 15%, 0.15), transparent 50%),
+    linear-gradient(180deg, var(--grey-60) 0%, var(--grey-20) 100%);
   margin: 0 auto;
   padding: var(--space-fluid-3xl) var(--space-fluid-lg);
   border-radius: var(--radius-lg);
   position: relative;
   overflow: hidden;
   text-align: center;
-  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.4), inset 0 1px 1px hsla(var(--primary-hue), 96%, 66%, 0.1);
 }
 
 .cta-box .hero__grid-fills,
@@ -2122,6 +2127,21 @@ iconify-icon.skill-tag__icon {
   mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
   opacity: 0.4;
 }
+
+.cta-box__pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(hsla(0, 0%, 0%, 0.12) 1px, transparent 1px);
+  background-size: 1rem 1rem;
+  background-position: center;
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+  mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+  opacity: 1;
+}
+
+
 
 .cta-floating-elements {
   position: absolute;
@@ -3371,4 +3391,29 @@ iconify-icon {
 .social-link:hover iconify-icon {
   color: var(--text-color-100);
   transform: translateY(-2px);
+}
+
+/* === VIEW TRANSITIONS === */
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.5s;
+}
+
+.header {
+  view-transition-name: site-header;
+}
+
+/* We will assign unique view-transition-names to cards via JS on click */
+.work__item-active {
+  view-transition-name: active-project-hero;
+}
+
+/* Project Detail Pages Hero */
+.pe-hero,
+.compliance-hero,
+.captable-hero,
+.esign-hero,
+.custom-dashboard-hero {
+  view-transition-name: active-project-hero;
 }
