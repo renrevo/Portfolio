@@ -203,7 +203,7 @@ function initHeroParallax() {
   window.addEventListener('scroll', () => {
     const scrolled = window.scrollY;
     visuals.forEach(visual => {
-      const speed = 0.25;
+      const speed = 0.16;
       const yPos = -(scrolled * speed);
       visual.style.setProperty('--parallax-y', `${yPos}px`);
     });
