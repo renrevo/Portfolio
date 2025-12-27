@@ -2635,24 +2635,6 @@ iconify-icon.skill-tag__icon {
   background: linear-gradient(135deg, #f8f3ff 0%, #ece0ff 100%);
 }
 
-/* Three.js Canvas */
-.pe-hero__canvas,
-.compliance-hero__canvas,
-.captable-hero__canvas,
-.esign-hero__canvas,
-.custom-dashboard-hero__canvas {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
-.pe-hero__canvas canvas,
-.compliance-hero__canvas canvas,
-.captable-hero__canvas canvas,
-.esign-hero__canvas canvas,
-.custom-dashboard-hero__canvas canvas {
-  display: block;
-}
 
 /* Content Container */
 .pe-hero__container,
