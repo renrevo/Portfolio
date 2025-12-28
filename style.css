@@ -1183,13 +1183,16 @@ a {
 .work__img-wrapper {
   padding: var(--space-4) var(--space-4) 0;
   width: 100%;
-  transition: transform var(--transition-base);
   display: flex;
   justify-content: center;
   align-items: flex-end;
 }
 
-.work__item-anchor:hover .work__img-wrapper {
+.work__img-wrapper img {
+  transition: transform var(--transition-base);
+}
+
+.work__item-anchor:hover .work__img-wrapper img {
   transform: translateY(-5px) scale(1.02);
 }
 
