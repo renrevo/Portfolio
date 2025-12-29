@@ -630,9 +630,10 @@ a {
 }
 
 .hero__title,
-.about-hero__title {
+.about-hero__title,
+.work-hero__title {
   font-size: var(--fs-xl);
-  line-height: 1.25;
+  line-height: 1.1;
   font-weight: var(--fw-semibold);
   color: var(--text-color-100);
 }
@@ -641,7 +642,8 @@ a {
   color: var(--color-primary);
 }
 
-.hero__subtext {
+.hero__subtext,
+.work-hero__subtext {
   font-size: var(--fs-base);
   line-height: 1.5;
   font-weight: var(--fw-regular);
@@ -649,13 +651,24 @@ a {
   max-width: 48ch;
 }
 
-.work-hero__content {
-  height: calc(40vh - 5rem);
+.work-hero,
+.about-hero {
+  padding: calc(var(--space-20) + 4rem) 1rem 4rem;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.work-hero__content,
+.about-hero__content {
   display: flex;
   flex-direction: column;
-  padding: 2rem 1rem;
-  justify-content: center;
-  gap: 1.5rem;
+  align-items: center;
+  gap: var(--space-fluid-md);
+  max-width: 1200px;
+  width: 100%;
 }
 
 .hero__btn-group {
@@ -671,17 +684,12 @@ a {
 .work-hero__content--main {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   height: 100%;
-  gap: 0.5rem;
+  gap: var(--space-fluid-sm);
 }
 
-.work-hero__title {
-  font-size: 2rem;
-  line-height: 2.25rem;
-  font-weight: 600;
-  color: var(--text-color-100);
-}
+
 
 /* Shiny CTA */
 @property --gradient-angle {
@@ -797,6 +805,11 @@ a {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
+}
+
+.work-hero .industry-tags,
+.about-hero .industry-tags {
+  justify-content: center;
 }
 
 .industry-tags__tag {
@@ -1063,6 +1076,11 @@ a {
 .work__item--five .work__img-wrapper,
 .work__item--five .work__tag {
   background: linear-gradient(135deg, #f8f3ff 0%, #ece0ff 100%);
+}
+
+.work__tab--six,
+.work__item--six .work__img-wrapper {
+  background: linear-gradient(135deg, #f7fffe 0%, #c6f4ff 100%);
 }
 
 .work__item-anchor {
@@ -1431,10 +1449,7 @@ a {
 /* === ABOUT PAGE STYLES === */
 /* Standardized project-background styles are handled in the general section above */
 
-.work-hero {
-  margin-top: calc(-1 * var(--space-20));
-  padding: calc(var(--space-20) + 2rem) 0 2rem;
-}
+/* Standardized in the general section */
 
 .work.with-grid-bg {
   margin-top: calc(-1 * var(--space-20));
@@ -1557,15 +1572,7 @@ a {
 /* === ABOUT PAGE STYLES === */
 
 /* Hero Section */
-.about-hero {
-  margin-top: calc(-1 * var(--space-20));
-  padding: calc(var(--space-20) + 8rem) 1rem 4rem;
-  min-height: 70vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
+/* Hero Sections are now standardized in the general section above */
 
 .about-hero__title {
   font-size: var(--fs-xl);
@@ -2594,7 +2601,8 @@ iconify-icon.skill-tag__icon {
 .compliance-hero,
 .captable-hero,
 .esign-hero,
-.custom-dashboard-hero {
+.custom-dashboard-hero,
+.security-monitoring-hero {
   position: relative;
   height: 100dvh;
   overflow: hidden;
@@ -2624,6 +2632,10 @@ iconify-icon.skill-tag__icon {
 
 .custom-dashboard-hero {
   background: linear-gradient(135deg, #f8f3ff 0%, #ece0ff 100%);
+}
+
+.security-monitoring-hero {
+  background: linear-gradient(135deg, #f5fdff 0%, #c6f4ff 100%);
 }
 
 /* Hero Visual & Parallax */
@@ -2668,7 +2680,8 @@ iconify-icon.skill-tag__icon {
 .compliance-hero__container,
 .captable-hero__container,
 .esign-hero__container,
-.custom-dashboard-hero__container {
+.custom-dashboard-hero__container,
+.security-monitoring-hero__container {
   position: relative;
   z-index: 10;
   display: flex;
@@ -2680,7 +2693,8 @@ iconify-icon.skill-tag__icon {
 .compliance-hero__content,
 .captable-hero__content,
 .esign-hero__content,
-.custom-dashboard-hero__content {
+.custom-dashboard-hero__content,
+.security-monitoring-hero__content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2694,7 +2708,8 @@ iconify-icon.skill-tag__icon {
 .compliance-hero__badge,
 .captable-hero__badge,
 .esign-hero__badge,
-.custom-dashboard-hero__badge {
+.custom-dashboard-hero__badge,
+.security-monitoring-hero__badge {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
@@ -2713,7 +2728,8 @@ iconify-icon.skill-tag__icon {
 .compliance-hero__badge-dot,
 .captable-hero__badge-dot,
 .esign-hero__badge-dot,
-.custom-dashboard-hero__badge-dot {
+.custom-dashboard-hero__badge-dot,
+.security-monitoring-hero__badge-dot {
   width: 6px;
   height: 6px;
   background: var(--text-color-100);
@@ -2740,7 +2756,8 @@ iconify-icon.skill-tag__icon {
 .compliance-hero__hook,
 .captable-hero__hook,
 .esign-hero__hook,
-.custom-dashboard-hero__hook {
+.custom-dashboard-hero__hook,
+.security-monitoring-hero__hook {
   font-size: clamp(2.5rem, 6vw, 3rem);
   font-weight: 600;
   color: var(--text-color-100);
@@ -2753,7 +2770,8 @@ iconify-icon.skill-tag__icon {
 .compliance-hero__hook-accent,
 .captable-hero__hook-accent,
 .esign-hero__hook-accent,
-.custom-dashboard-hero__hook-accent {
+.custom-dashboard-hero__hook-accent,
+.security-monitoring-hero__hook-accent {
   background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 50%, #1a1a1a 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -2777,7 +2795,8 @@ iconify-icon.skill-tag__icon {
 .compliance-hero__value,
 .captable-hero__value,
 .esign-hero__value,
-.custom-dashboard-hero__value {
+.custom-dashboard-hero__value,
+.security-monitoring-hero__value {
   font-size: clamp(1rem, 2vw, 1.25rem);
   line-height: 1.6;
   color: var(--text-color-70);
@@ -2897,11 +2916,13 @@ iconify-icon.skill-tag__icon {
 @media (min-width: 768px) {
 
   .hero,
+  .work-hero,
   .pe-hero,
   .compliance-hero,
   .captable-hero,
   .esign-hero,
-  .custom-dashboard-hero {
+  .custom-dashboard-hero,
+  .security-monitoring-hero {
     margin-top: calc(-1 * 88px);
   }
 
@@ -2909,7 +2930,8 @@ iconify-icon.skill-tag__icon {
   .compliance-hero__content,
   .captable-hero__content,
   .esign-hero__content,
-  .custom-dashboard-hero__content {
+  .custom-dashboard-hero__content,
+  .security-monitoring-hero__content {
     gap: var(--space-8);
   }
 
@@ -2917,7 +2939,8 @@ iconify-icon.skill-tag__icon {
   .compliance-hero__badge,
   .captable-hero__badge,
   .esign-hero__badge,
-  .custom-dashboard-hero__badge {
+  .custom-dashboard-hero__badge,
+  .security-monitoring-hero__badge {
     padding: var(--space-2) var(--space-5);
   }
 }
@@ -2928,7 +2951,8 @@ iconify-icon.skill-tag__icon {
   .compliance-hero__hook,
   .captable-hero__hook,
   .esign-hero__hook,
-  .custom-dashboard-hero__hook {
+  .custom-dashboard-hero__hook,
+  .security-monitoring-hero__hook {
     font-size: 4.5rem;
   }
 }
