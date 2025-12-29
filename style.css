@@ -290,7 +290,8 @@ a {
 
 .brand>img {
   height: var(--space-12);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color-10);
 }
 
 .brand>p {
