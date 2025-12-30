@@ -1049,38 +1049,33 @@ a {
 }
 
 .work__tab--one,
-.work__item--one .work__img-wrapper,
-.work__item--one .work__tag {
+.work__item--one .work__img-wrapper {
   background: linear-gradient(135deg, #f4faff 0%, #d1e8f9 100%);
 }
 
 .work__tab--two,
-.work__item--two .work__img-wrapper,
-.work__item--two .work__tag {
+.work__item--two .work__img-wrapper {
   background: linear-gradient(135deg, #fafff5 0%, #defdd1 100%);
 }
 
 .work__tab--three,
-.work__item--three .work__img-wrapper,
-.work__item--three .work__tag {
+.work__item--three .work__img-wrapper {
   background: linear-gradient(135deg, #fffcf3 0%, #fceec5 100%);
 }
 
 .work__tab--four,
-.work__item--four .work__img-wrapper,
-.work__item--four .work__tag {
-  background: linear-gradient(135deg, #fef7f5 0%, #ffe4de 100%);
+.work__item--four .work__img-wrapper {
+  background: linear-gradient(135deg, #f7fffe 0%, #c6f4ff 100%);
 }
 
 .work__tab--five,
-.work__item--five .work__img-wrapper,
-.work__item--five .work__tag {
-  background: linear-gradient(135deg, #f8f3ff 0%, #ece0ff 100%);
+.work__item--five .work__img-wrapper {
+  background: linear-gradient(135deg, #fef7f5 0%, #ffe4de 100%);
 }
 
 .work__tab--six,
 .work__item--six .work__img-wrapper {
-  background: linear-gradient(135deg, #f7fffe 0%, #c6f4ff 100%);
+  background: linear-gradient(135deg, #f8f3ff 0%, #ece0ff 100%);
 }
 
 .work__item-anchor {
