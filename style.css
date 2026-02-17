@@ -1070,12 +1070,12 @@ a {
 
 .work__tab--five,
 .work__item--five .work__img-wrapper {
-  background: linear-gradient(135deg, #fef7f5 0%, #ffe4de 100%);
+  background: linear-gradient(135deg, #f8f3ff 0%, #ece0ff 100%);
 }
 
 .work__tab--six,
 .work__item--six .work__img-wrapper {
-  background: linear-gradient(135deg, #f8f3ff 0%, #ece0ff 100%);
+  background: linear-gradient(135deg, #fef7f5 0%, #ffe4de 100%);
 }
 
 .work__item-anchor {
