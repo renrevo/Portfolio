@@ -1060,12 +1060,12 @@ a {
 
 .work__tab--three,
 .work__item--three .work__img-wrapper {
-  background: linear-gradient(135deg, #fffcf3 0%, #fceec5 100%);
+  background: linear-gradient(135deg, #f7fffe 0%, #c6f4ff 100%);
 }
 
 .work__tab--four,
 .work__item--four .work__img-wrapper {
-  background: linear-gradient(135deg, #f7fffe 0%, #c6f4ff 100%);
+  background: linear-gradient(135deg, #fffcf3 0%, #fceec5 100%);
 }
 
 .work__tab--five,
