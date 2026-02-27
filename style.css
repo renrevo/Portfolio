@@ -651,8 +651,7 @@ a {
   max-width: 48ch;
 }
 
-.work-hero,
-.about-hero {
+.work-hero {
   padding: calc(var(--space-20) + 4rem) 1rem 4rem;
   min-height: 70vh;
   display: flex;
@@ -661,8 +660,194 @@ a {
   text-align: center;
 }
 
-.work-hero__content,
-.about-hero__content {
+/* NEW: About hero – full-width stacked layout matching reference */
+.about-hero {
+  padding-top: calc(var(--space-20) + 3rem);
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+/* Text block above the image */
+.about-hero__text {
+  padding: 0 var(--page-padding);
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+/* Visual container: carousel + person image stacked */
+.about-hero__visual {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+  /* clip carousel at edges */
+}
+
+/* ── Carousel ── */
+.about-hero__carousel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  overflow: hidden;
+  z-index: 1;
+  /* left-to-right fade edges */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.about-hero__carousel-track {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: max-content;
+  height: 100%;
+  animation: carousel-scroll 22s linear infinite;
+  padding: 0 16px;
+}
+
+@keyframes carousel-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.about-hero__icon-wrap {
+  width: 72px;
+  height: 72px;
+  background: var(--bg-color-100);
+  border: 1px solid var(--border-color-10);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  padding: 12px;
+}
+
+.about-hero__icon-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ── Person image ── */
+.about-hero__person {
+  z-index: 2;
+  width: min(360px, 70vw);
+}
+
+.about-hero__person img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* ── Stats bar ── */
+.about-hero__stats {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: var(--space-5) var(--page-padding);
+}
+
+.about-hero__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+  max-width: 180px;
+  min-width: 0;
+}
+
+.about-hero__stat-number {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--text-color-100);
+  line-height: 1.1;
+}
+
+.about-hero__stat-label {
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-color-70);
+  font-weight: var(--fw-medium);
+  white-space: nowrap;
+  text-align: center;
+}
+
+.about-hero__stat-divider {
+  width: 1px;
+  height: 2.5rem;
+  background: #d5d5d5;
+  flex-shrink: 0;
+}
+
+/* ── Stats bar – mobile responsive ── */
+@media (max-width: 480px) {
+  .about-hero__stats {
+    gap: 0.75rem;
+    padding: var(--space-4) var(--space-4);
+  }
+
+  .about-hero__stat-number {
+    font-size: 1.25rem;
+  }
+
+  .about-hero__stat-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+    white-space: normal;
+  }
+
+  .about-hero__stat-divider {
+    height: 2rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .about-hero__stats {
+    gap: 0.5rem;
+    padding: var(--space-3) var(--space-2);
+  }
+
+  .about-hero__stat-number {
+    font-size: 1.1rem;
+  }
+
+  .about-hero__stat-label {
+    font-size: 0.55rem;
+  }
+
+  .about-hero__stat-divider {
+    height: 1.75rem;
+  }
+}
+
+.work-hero__content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1566,14 +1751,12 @@ a {
 
 /* === ABOUT PAGE STYLES === */
 
-/* Hero Section */
-/* Hero Sections are now standardized in the general section above */
+/* Hero Section – styles now live in the general section above (around line 654) */
 
 .about-hero__title {
   font-size: var(--fs-xl);
   line-height: 1.1;
   font-weight: var(--fw-semibold);
-  margin-bottom: var(--space-fluid-md);
   color: var(--text-color-100);
 }
 
@@ -1602,60 +1785,6 @@ a {
   line-height: 1.6;
   color: var(--text-color-80);
   max-width: 48ch;
-  margin: 0 auto;
-}
-
-/* Integrated Hero Stats */
-.about-hero .stats-grid {
-  display: flex;
-  flex-direction: column;
-  /* Mobile first */
-  justify-content: center;
-  align-items: center;
-  gap: var(--space-fluid-lg);
-  /* Mobile first */
-  margin-top: var(--space-fluid-xl);
-  max-width: none;
-}
-
-.about-hero .stat-card {
-  padding: 0;
-  border: none;
-  background: transparent;
-  text-align: center;
-  position: relative;
-  flex: none;
-}
-
-.about-hero .stat-card:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: calc(var(--space-fluid-xl) / -2);
-  transform: translateY(-50%);
-  width: 1px;
-  height: 2rem;
-  background: var(--border-color-10);
-  display: none;
-  /* Mobile first: hide */
-}
-
-.about-hero .stat-card:hover {
-  transform: translateY(-4px);
-  box-shadow: none;
-}
-
-.about-hero .stat-card__number {
-  font-size: var(--fs-2xl);
-  font-weight: var(--fw-bold);
-  margin-bottom: 0.25rem;
-}
-
-.about-hero .stat-card__label {
-  font-size: var(--fs-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-color-70);
 }
 
 /* Tablet overrides will be consolidated at the end of the file */
@@ -2364,17 +2493,16 @@ iconify-icon.skill-tag__icon {
   }
 
   .about-hero {
-    padding: var(--space-fluid-3xl) var(--page-padding) var(--space-fluid-xl);
+    padding-top: calc(var(--space-20) + 3rem);
   }
 
-  /* About Hero Stats Override */
-  .about-hero .stats-grid {
-    flex-direction: row;
-    gap: var(--space-fluid-xl);
+  .about-hero__person {
+    width: min(400px, 55vw);
   }
 
-  .about-hero .stat-card:not(:last-child)::after {
-    display: block;
+  .about-hero__icon-wrap {
+    width: 80px;
+    height: 80px;
   }
 
   .stats-grid {
