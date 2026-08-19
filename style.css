@@ -3702,3 +3702,75 @@ iconify-icon {
     transform: scale(0.4) translateY(-4px);
   }
 }
+
+/* ─── Toptal Footer Social Badge ─── */
+.social-link-toptal {
+  width: 4rem;
+  height: 4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  opacity: 0.8;
+  transition: opacity 0.24s ease-in-out, transform 0.3s ease;
+  overflow: visible;
+  padding: 0.5rem;
+}
+
+.social-link-toptal:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.toptal-badge-footer-wrap {
+  transform: scale(0.22);
+  transform-origin: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: proxima-nova, Arial, sans-serif;
+  --toptal-h: polygon(50% 0, 100% 24%, 100% 76%, 50% 100%, 0 76%, 0 24%);
+}
+
+.toptal-badge-footer-wrap .toptal-h {
+  display: inline-block;
+  background: #25a9ef;
+  padding: 6px;
+  clip-path: var(--toptal-h);
+}
+
+.toptal-badge-footer-wrap .toptal-a {
+  width: 200px;
+  padding: 28px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #204ecf;
+  text-align: center;
+  background: radial-gradient(circle at 20% -10%, #00c3ff -80%, #fff 30%),
+              radial-gradient(circle at -20% 20%, #00c3ff -80%, #fff 30%),
+              radial-gradient(circle at 70% 100%, #00c3ff -80%, #fff 30%),
+              radial-gradient(circle at 120% 80%, #00c3ff -80%, #fff 30%);
+  background-blend-mode: multiply;
+  clip-path: var(--toptal-h);
+  box-shadow: 0 28px 50px rgba(6, 30, 96, .35);
+}
+
+.toptal-badge-footer-wrap .toptal-b {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.toptal-badge-footer-wrap .toptal-c {
+  width: 120px;
+  height: 1px;
+  background: #25a9ef;
+}
+
+.toptal-badge-footer-wrap .toptal-d {
+  font-size: 16px;
+  margin-bottom: -6px;
+}
