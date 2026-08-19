@@ -250,7 +250,7 @@ function initToptalBadge() {
   if (closeBtn) {
     closeBtn.addEventListener('click', () => {
       badge.style.opacity = '0';
-      badge.style.transform = window.innerWidth <= 768 ? 'scale(0.6) translateY(20px)' : 'scale(0.75) translateY(20px)';
+      badge.style.transform = window.innerWidth <= 768 ? 'scale(0.2) translateY(20px)' : 'scale(0.25) translateY(20px)';
       setTimeout(() => {
         badge.remove();
         localStorage.setItem('toptal-badge-dismissed', 'true');
